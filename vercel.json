@@ -2,29 +2,5 @@
   "buildCommand": "npm run build",
   "devCommand": "npm run dev",
   "installCommand": "npm install",
-  "framework": "nextjs",
-  "regions": ["iad1"],
-  "functions": {
-    "api/**/*.js": {
-      "memory": 1024,
-      "maxDuration": 30
-    }
-  },
-  "redirects": [
-    {
-      "source": "/old-route/:path*",
-      "destination": "/new-route/:path*"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/api/:path*",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-store"
-        }
-      ]
-    }
-  ]
+  "framework": "nextjs"
 }
