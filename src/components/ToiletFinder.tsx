@@ -9,7 +9,7 @@ import ToiletCard from './ToiletCard';
 
 interface ToiletWithDistance extends Toilet {
   siteName: string;
-  distance: number;
+  distanceKm: number;
 }
 
 export default function ToiletFinder() {
@@ -49,10 +49,10 @@ export default function ToiletFinder() {
       (site.toilets || []).map((toilet): ToiletWithDistance => ({
         ...toilet,
         siteName: site.name,
-        distance: calculateDistance(location, { lat: toilet.lat, lng: toilet.lng }),
+        distanceKm: calculateDistance(location, { lat: toilet.lat, lng: toilet.lng }),
       }))
     )
-    .sort((a, b) => a.distance - b.distance);
+    .sort((a, b) => a.distanceKm - b.distanceKm);
 
   // Apply filters
   const filteredToilets =
