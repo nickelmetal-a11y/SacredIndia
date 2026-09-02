@@ -22,6 +22,8 @@
 - Google API keys obtained (AIzaSyAFrTo5KMWTkvS5RgX1HHutM2_JtAlklL0)
 - `.env.local` configured with API key
 - Dev server running at localhost:3000
+- **Vercel deployed**: https://sacredindia.vercel.app
+- **Vercel Project ID**: prj_kCfs6NloPpklCbppnu0MPssBMEHn
 
 ### 🔴 Current Issues
 - **Build Error**: `Module not found: '@/components/SiteCard'`
