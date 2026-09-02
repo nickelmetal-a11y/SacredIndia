@@ -1,0 +1,373 @@
+{
+  "religions": {
+    "hindu": {
+      "label": "Hindu",
+      "native": "हिन्दू",
+      "color": "#C85A1A",
+      "bg": "#FDF0E6",
+      "border": "#F5C4A0",
+      "emoji": "🛕",
+      "light": "#FEF9F5"
+    },
+    "islam": {
+      "label": "Islam",
+      "native": "الإسلام",
+      "color": "#1B5E8A",
+      "bg": "#E8F4FB",
+      "border": "#A8D4EF",
+      "emoji": "🕌",
+      "light": "#F0F8FC"
+    },
+    "christian": {
+      "label": "Christian",
+      "native": "✝",
+      "color": "#7B3FA0",
+      "bg": "#F3EBF8",
+      "border": "#C9A5E0",
+      "emoji": "✝️",
+      "light": "#F8F2FC"
+    },
+    "buddhist": {
+      "label": "Buddhist",
+      "native": "☸",
+      "color": "#2471A3",
+      "bg": "#EBF5FB",
+      "border": "#A9D4F0",
+      "emoji": "☸️",
+      "light": "#F4F9FD"
+    },
+    "jain": {
+      "label": "Jain",
+      "native": "जैन",
+      "color": "#0E6655",
+      "bg": "#E8F8F5",
+      "border": "#8ED4BF",
+      "emoji": "⛩️",
+      "light": "#F0FAF8"
+    },
+    "sikh": {
+      "label": "Sikh",
+      "native": "ਸਿੱਖ",
+      "color": "#9A6B10",
+      "bg": "#FEF9E7",
+      "border": "#F0D080",
+      "emoji": "🪯",
+      "light": "#FEFDF5"
+    },
+    "zoroastrian": {
+      "label": "Zoroastrian",
+      "native": "زرتشتی",
+      "color": "#B5451B",
+      "bg": "#FEF3E8",
+      "border": "#F5C898",
+      "emoji": "🔥",
+      "light": "#FEF9F4"
+    }
+  },
+  "sites": [
+    {
+      "id": "varanasi",
+      "religion": "hindu",
+      "name": "Varanasi — Kashi",
+      "subtitle": "City of Liberation",
+      "local": "वाराणसी / काशी",
+      "lat": 25.3176,
+      "lng": 82.9739,
+      "state": "Uttar Pradesh",
+      "badge": "Moksha Kshetra",
+      "emoji": "🔱",
+      "desc": "The oldest living city on earth. Shiva's personal abode. Dying here grants moksha regardless of karma.",
+      "story": "Kashi rests on the tip of Shiva's trident — elevated above the material world, never submerged even during the cosmic flood. At death in Kashi, Shiva whispers the Taraka mantra into the dying person's ear, granting liberation regardless of caste, karma, or life lived. The eternal fire at Manikarnika has witnessed every cremation in this city's history.",
+      "scripture": {
+        "orig": "काश्यां मरणान्मुक्तिः।\nकाश्यां हि काशते काशी काशी सर्वप्रकाशिका।",
+        "eng": "Death in Kashi is liberation. / Kashi shines and illuminates everything.",
+        "src": "Skanda Purana — Kashi Khanda 26.1"
+      },
+      "spots": [
+        {
+          "name": "Kashi Vishwanath Temple",
+          "local": "काशी विश्वनाथ",
+          "dist": "0.3km",
+          "hours": "2:30AM–11PM",
+          "open": true,
+          "ritual": "Bathe at dawn. Offer Bilva, milk, honey at the Shivalinga. Circumambulate 3 times clockwise."
+        },
+        {
+          "name": "Manikarnika Ghat",
+          "local": "मणिकर्णिका घाट",
+          "dist": "0.8km",
+          "hours": "24 hours",
+          "open": true,
+          "ritual": "Observe from upper platform only. No photography near the pyres."
+        },
+        {
+          "name": "Dashashwamedha Ghat",
+          "local": "दशाश्वमेध घाट",
+          "dist": "0.5km",
+          "hours": "Aarti 6AM & 7PM",
+          "open": true,
+          "ritual": "Arrive 20 min early. Release a diya on the river after the Aarti."
+        },
+        {
+          "name": "Sarnath Dhamek Stupa",
+          "local": "सारनाथ",
+          "dist": "13km",
+          "hours": "Sunrise–Sunset",
+          "open": true,
+          "ritual": "Meditate at the stupa at dawn. The exact spot of the Buddha's first sermon."
+        }
+      ],
+      "bookings": [
+        {
+          "name": "Bhasma Aarti Darshan",
+          "local": "भस्म आरती",
+          "price": 0,
+          "slot": "3:00 AM",
+          "duration": "45 min",
+          "desc": "Most powerful aarti in Kashi. Shiva worshipped with sacred ash. Dhoti/saree required. No phones.",
+          "advance": "15 days ahead",
+          "dress": "Dhoti (men) / Saree (women). No phones."
+        },
+        {
+          "name": "Rudrabhishekam Puja",
+          "local": "रुद्राभिषेक",
+          "price": 1100,
+          "slot": "6AM, 7AM, 8AM, 9AM, 4PM, 5PM",
+          "duration": "45 min",
+          "desc": "Personal puja at the main Shivalinga with milk, honey, Bilva, Gangajal.",
+          "advance": "3 days ahead",
+          "dress": "Traditional attire preferred"
+        },
+        {
+          "name": "Ganga Aarti Reserved Seat",
+          "local": "गंगा आरती",
+          "price": 200,
+          "slot": "7:00 PM",
+          "duration": "1 hour",
+          "desc": "Reserved front-row seat at Dashashwamedha for the most spectacular evening ritual in India.",
+          "advance": "Same day ok",
+          "dress": "Any"
+        }
+      ]
+    },
+    {
+      "id": "char_dham",
+      "religion": "hindu",
+      "name": "Char Dham",
+      "subtitle": "The Four Himalayan Abodes",
+      "local": "चार धाम",
+      "lat": 30.7346,
+      "lng": 79.0669,
+      "state": "Uttarakhand",
+      "badge": "Highest Pilgrimage",
+      "emoji": "🏔️",
+      "desc": "Kedarnath · Badrinath · Gangotri · Yamunotri — completing the Char Dham Yatra is considered equivalent to liberation itself.",
+      "story": "The four dhams form the spiritual geography of Hinduism's most sacred pilgrimage. Yamunotri is the source of the Yamuna. Gangotri is the source of the Ganga. Kedarnath is the highest Jyotirlinga at 3,583m. Badrinath is where Vishnu meditates eternally. Completing all four washes away the karma of all previous lifetimes.",
+      "scripture": {
+        "orig": "यानि कानि च तीर्थानि देवानाम् अपि दुर्लभाः।\nतानि सर्वाणि संसृष्टानि भारते भरतर्षभ॥",
+        "eng": "All the sacred tirthas, difficult even for the gods, are gathered in Bharata (India).",
+        "src": "Mahabharata — Vana Parva 85.7"
+      },
+      "spots": [
+        {
+          "name": "Kedarnath Temple",
+          "local": "केदारनाथ मंदिर",
+          "dist": "22km trek or helicopter",
+          "hours": "May–Nov: 5AM–9PM",
+          "open": true,
+          "ritual": "Attend the Rudrabhishekam at 4AM. Circumambulate the Jyotirlinga before dawn."
+        },
+        {
+          "name": "Badrinath Temple",
+          "local": "बद्रीनाथ मंदिर",
+          "dist": "Road accessible",
+          "hours": "May–Nov: 4:30AM–9PM",
+          "open": true,
+          "ritual": "Bathe in Tapt Kund hot spring before entering. The Abhishek puja at 4:30AM is most sacred."
+        }
+      ],
+      "bookings": [
+        {
+          "name": "Kedarnath Helicopter Darshan",
+          "local": "केदारनाथ हेलीकॉप्टर",
+          "price": 9500,
+          "slot": "6AM, 7AM, 8AM, 9AM, 10AM, 11AM",
+          "duration": "4 hours total",
+          "desc": "Fly to Kedarnath (3,583m), skip the 22km trek. 20 min darshan at the Jyotirlinga.",
+          "advance": "60 days. Sells out in days.",
+          "dress": "Very warm clothes — below 0°C at temple"
+        }
+      ]
+    },
+    {
+      "id": "tirupati",
+      "religion": "hindu",
+      "name": "Tirumala Venkateswara",
+      "subtitle": "World's Richest Temple",
+      "local": "तिरुमला वेंकटेश्वर",
+      "lat": 13.6833,
+      "lng": 79.3469,
+      "state": "Andhra Pradesh",
+      "badge": "Vaishnava Kshetra",
+      "emoji": "🙏",
+      "desc": "70,000 pilgrims daily. World's most visited religious site. Vishnu's Kali Yuga avatar grants boons directly.",
+      "story": "Vishnu chose to appear as Venkateswara in Kali Yuga specifically because humans in this age cannot perform complex rituals. He grants boons directly to whoever sincerely asks. The temple receives more visitors than the Vatican or Mecca on an annual basis. Pilgrims offer their hair (tonsure) as an act of complete surrender — over 50 tons annually.",
+      "scripture": {
+        "orig": "कलौ कल्मषचित्तानां पापद्रव्योपजीविनाम्।\nविष्णोर्नामैव पारं हि नान्यः पन्थाः अयनाय॥",
+        "eng": "In Kali Yuga, for those with impure minds, only Vishnu's name is the means of salvation.",
+        "src": "Vishnu Purana — Chapter on Kali Yuga"
+      },
+      "spots": [
+        {
+          "name": "Sri Venkateswara Temple",
+          "local": "श्री वेंकटेश्वर",
+          "dist": "Tirumala hill",
+          "hours": "2:30AM–1AM next day",
+          "open": true,
+          "ritual": "Tonsure (head-shaving) at Kalyanakatta before darshan is the traditional act of complete surrender."
+        }
+      ],
+      "bookings": [
+        {
+          "name": "Seeghra Darshan (Fast Track)",
+          "local": "सीघ्र दर्शन",
+          "price": 300,
+          "slot": "Any time — timed entry",
+          "duration": "30-min queue",
+          "desc": "Skip the general queue (4–20 hours). Reserved fast-track darshan. Book 120 days ahead on TTD portal.",
+          "advance": "Book 120 days ahead on TTD portal",
+          "dress": "Traditional Indian attire mandatory. No jeans, shorts, or sleeveless."
+        }
+      ]
+    },
+    {
+      "id": "ajmer",
+      "religion": "islam",
+      "name": "Ajmer Dargah Sharif",
+      "subtitle": "Gharib Nawaz — Benefactor of the Poor",
+      "local": "درگاہ شریف اجمیر",
+      "lat": 26.4551,
+      "lng": 74.6401,
+      "state": "Rajasthan",
+      "badge": "Chishti Order",
+      "emoji": "🌹",
+      "desc": "Mazaar of Khwaja Moinuddin Chishti (1141–1236). India's most visited pilgrimage site. 200,000+ weekly. Every faith welcome.",
+      "story": "Khwaja Moinuddin Chishti arrived in Ajmer in 1192 and never left. He fed everyone who came — Hindu, Muslim, untouchable, king — before any sermon. 'The highest devotion is to redress the misery of the distressed, to feed the hungry.' He died in 1236. Today Hindus, Sikhs, and Christians all tie threads on the marble jali for their prayers. Emperor Akbar walked barefoot from Agra after the birth of Jahangir.",
+      "scripture": {
+        "orig": "خواجه مرا خواجه مرا مشکل کشا مشکل کشا\nاے غریب نواز تو درد مرا درمان کن",
+        "eng": "My Khwaja, Remover of Difficulties — O Benefactor of the Poor, heal my suffering.",
+        "src": "Chishti Qawwali tradition — Ajmer Dargah"
+      },
+      "spots": [
+        {
+          "name": "Dargah Sharif (Main Mazaar)",
+          "local": "درگاہ شریف",
+          "dist": "0 km",
+          "hours": "5AM–10PM",
+          "open": true,
+          "ritual": "Remove footwear. Cover head. Carry a chadar offering. Make dua at the mazaar threshold — silently, from the heart."
+        }
+      ],
+      "bookings": [
+        {
+          "name": "Chadar Offering — Inner Sanctum",
+          "local": "چادر پیش کرنا",
+          "price": 500,
+          "slot": "5:30AM, 7AM, 9AM, 11AM, 2PM, 4PM, 6PM, 8PM",
+          "duration": "20 min",
+          "desc": "A khadim guides you inside the inner sanctum to drape the chadar on the mazaar personally.",
+          "advance": "Walk-in or book to skip queue",
+          "dress": "Remove footwear. Cover head. Modest dress."
+        }
+      ]
+    },
+    {
+      "id": "bodh_gaya",
+      "religion": "buddhist",
+      "name": "Bodh Gaya — Mahabodhi Temple",
+      "subtitle": "Where the Buddha Became the Buddha",
+      "local": "बोधगया",
+      "lat": 24.6961,
+      "lng": 84.9914,
+      "state": "Bihar",
+      "badge": "First Site of Buddhism",
+      "emoji": "🌿",
+      "desc": "UNESCO World Heritage. The Vajrasana (diamond throne) beneath the Bodhi tree. The navel of the earth.",
+      "story": "Siddhartha sat under this tree with one resolve: 'I will not rise until I attain Awakening.' Mara attacked through the night — fear, desire, doubt, restlessness. As dawn broke and the morning star rose, dependent origination became completely clear. He had become the Tathagata — the Thus-Gone-One. The Vajrasana beneath the Bodhi tree is the navel of the earth from which all Buddhas of all ages awaken.",
+      "scripture": {
+        "orig": "Yadā have pātubhavanti dhammā,\nātāpino jhāyato brāhmaṇassa;\nvidhūpayaṃ tiṭṭhati mārasenaṃ —\nsūriyova obhāsayam antalikkhaṃ.",
+        "eng": "When the truths become clear to the ardent meditating brahmin, he disperses Mara's army — like the sun illuminating the sky.",
+        "src": "Udana 1.1 — spoken at the exact moment of the Buddha's awakening, Bodh Gaya"
+      },
+      "spots": [
+        {
+          "name": "Mahabodhi Temple",
+          "local": "महाबोधि मंदिर",
+          "dist": "0 km",
+          "hours": "5AM–9PM",
+          "open": true,
+          "ritual": "Sit facing the Bodhi tree at sunrise for 20 min. Practice anapana-sati — the exact practice the Buddha was doing when he awakened."
+        }
+      ],
+      "bookings": [
+        {
+          "name": "Guided Meditation at the Bodhi Tree",
+          "local": "बोधि ध्यान",
+          "price": 300,
+          "slot": "5:00 AM, 6:30 AM, 4:30 PM",
+          "duration": "45 min",
+          "desc": "Guided meditation at the Vajrasana, led by a resident monk before the crowds arrive.",
+          "advance": "1 day ahead",
+          "dress": "Comfortable clothing. Remove footwear."
+        }
+      ]
+    },
+    {
+      "id": "velankanni",
+      "religion": "christian",
+      "name": "Basilica of Our Lady of Health",
+      "subtitle": "Lourdes of the East",
+      "local": "நலம் அருளும் அன்னை",
+      "lat": 10.6868,
+      "lng": 79.8536,
+      "state": "Tamil Nadu",
+      "badge": "Marian Shrine",
+      "emoji": "🕊️",
+      "desc": "20 million pilgrims annually. Hindus, Muslims, and Christians all come seeking healing from 'Arogya Matha' (Mother of Health).",
+      "story": "Our Lady appeared here three times in the 16th century — first to a lame shepherd boy who was healed, then to a buttermilk seller, then to Portuguese sailors in a storm. Each time she appeared with the infant Jesus. The shrine draws Hindus who call her Arogya Matha and Muslims who come for healing alongside Catholics.",
+      "scripture": {
+        "orig": "Blessed are you among women, and blessed is the fruit of your womb.",
+        "eng": "Blessed are you among women, and blessed is the fruit of your womb.",
+        "src": "Luke 1:42 — Elizabeth's greeting to Mary"
+      },
+      "spots": [
+        {
+          "name": "Main Basilica",
+          "local": "பேராலயம்",
+          "dist": "0 km",
+          "hours": "5AM–10PM",
+          "open": true,
+          "ritual": "Walk the 1km from the Velankanni Arch to the Basilica barefoot — practiced by Hindus, Muslims, and Christians alike."
+        }
+      ],
+      "bookings": [
+        {
+          "name": "Candle Offering + Grotto Prayer",
+          "local": "மெழுகுவர்த்தி நேர்ச்சை",
+          "price": 50,
+          "slot": "All day 6AM–10PM",
+          "duration": "20 min",
+          "desc": "Light a candle at the miraculous grotto and collect blessed holy water to take home.",
+          "advance": "Walk-in",
+          "dress": "Modest dress"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "totalSites": 85,
+    "lastUpdated": "2026-09-01",
+    "version": "2.0",
+    "religions": 7
+  }
+}
