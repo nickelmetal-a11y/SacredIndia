@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import sitesData from '@/data/sites.json';
+import { getDefaultPaths } from '@/utils/defaultPaths';
 
 export interface Religion {
   label: string;
@@ -37,6 +38,26 @@ export interface Booking {
   dress: string;
 }
 
+export interface Waypoint {
+  name: string;
+  lat: number;
+  lng: number;
+  dist: string;
+  time: string;
+}
+
+export interface Path {
+  type: 'elderly' | 'adventure';
+  label: string;
+  difficulty: 'Easy' | 'Moderate' | 'Challenging';
+  distance: string;
+  duration: string;
+  elevation?: string;
+  description: string;
+  waypoints: Waypoint[];
+  amenities: string[];
+}
+
 export interface Site {
   id: string;
   religion: string;
@@ -53,6 +74,7 @@ export interface Site {
   scripture: Scripture;
   spots: Spot[];
   bookings: Booking[];
+  paths?: Path[];
 }
 
 export interface SitesData {
@@ -74,7 +96,11 @@ export const useSites = () => {
   useEffect(() => {
     try {
       const data = sitesData as unknown as SitesData;
-      setSites(data.sites);
+      const sitesWithPaths = data.sites.map((site) => ({
+        ...site,
+        paths: site.paths || getDefaultPaths(site.name, { lat: site.lat, lng: site.lng }),
+      }));
+      setSites(sitesWithPaths);
       setReligions(data.religions);
       setLoading(false);
     } catch (error) {

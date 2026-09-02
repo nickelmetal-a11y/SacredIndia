@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState, useMemo } from 'react';
 import { useSites } from '@/hooks/useSites';
+import PathSelector from '@/components/PathSelector';
 
 interface SiteDetailProps {
   params: {
@@ -104,6 +105,12 @@ export default function SiteDetail({ params }: SiteDetailProps) {
                 <p className="text-gray-700 mb-2">{site.scripture.eng}</p>
                 <p className="text-sm text-gray-500">— {site.scripture.src}</p>
               </div>
+            </section>
+
+            {/* Routes & Paths */}
+            <section>
+              <h2 className="font-serif text-3xl font-bold mb-6">🧭 Choose Your Route</h2>
+              <PathSelector paths={site.paths} />
             </section>
 
             {/* Key Spots */}
