@@ -57,11 +57,22 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const mapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+
   return (
     <html
       lang="en"
       className={`${cormorant.variable} ${outfit.variable} ${noto.variable} scroll-smooth`}
     >
+      <head>
+        {mapsApiKey && (
+          <script
+            src={`https://maps.googleapis.com/maps/api/js?key=${mapsApiKey}`}
+            async
+            defer
+          />
+        )}
+      </head>
       <body className="bg-gray-50 text-gray-900 antialiased">
         <div className="min-h-screen flex flex-col">
           <main className="flex-1">

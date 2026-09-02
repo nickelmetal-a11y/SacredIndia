@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useSites } from '@/hooks/useSites';
 import SiteCard from '@/components/SiteCard';
+import NearbySites from '@/components/NearbySites';
+import InteractiveMap from '@/components/InteractiveMap';
 
 export default function Home() {
   const { sites, religions, loading, getSitesByReligion } = useSites();
@@ -101,6 +103,20 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* GPS Discovery Map Section */}
+      <section className="max-w-7xl mx-auto px-4 py-16">
+        <div className="mb-8">
+          <h2 className="font-serif text-4xl font-bold mb-2">🗺️ Interactive Map</h2>
+          <p className="text-gray-600">
+            Discover sacred sites near you with real-time GPS location
+          </p>
+        </div>
+        <InteractiveMap />
+      </section>
+
+      {/* Nearby Sites Section */}
+      <NearbySites />
 
       {/* Religion Filter */}
       <section className="bg-gray-50 px-4 py-8 sticky top-0 z-40 border-b border-gray-200 shadow-sm">
