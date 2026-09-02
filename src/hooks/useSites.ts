@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import sitesData from '@/data/sites.json';
 import { getDefaultPaths } from '@/utils/defaultPaths';
+import { getDefaultToilets } from '@/utils/defaultToilets';
 
 export interface Religion {
   label: string;
@@ -58,6 +59,21 @@ export interface Path {
   amenities: string[];
 }
 
+export interface Toilet {
+  id: string;
+  name: string;
+  distance: string; // e.g., "0.3 km"
+  rating: number; // 1-5
+  reviews: number;
+  cleanliness: 'Excellent' | 'Good' | 'Fair' | 'Poor';
+  cost: string; // e.g., "₹5", "Free"
+  hours: string;
+  amenities: string[]; // "Soap", "Hand dryer", "Mirror", etc.
+  accessible: boolean; // wheelchair accessible
+  lat: number;
+  lng: number;
+}
+
 export interface Site {
   id: string;
   religion: string;
@@ -75,6 +91,7 @@ export interface Site {
   spots: Spot[];
   bookings: Booking[];
   paths?: Path[];
+  toilets?: Toilet[];
 }
 
 export interface SitesData {
@@ -96,11 +113,12 @@ export const useSites = () => {
   useEffect(() => {
     try {
       const data = sitesData as unknown as SitesData;
-      const sitesWithPaths = data.sites.map((site) => ({
+      const sitesWithPathsAndToilets = data.sites.map((site) => ({
         ...site,
         paths: site.paths || getDefaultPaths(site.name, { lat: site.lat, lng: site.lng }),
+        toilets: site.toilets || getDefaultToilets(site.name, { lat: site.lat, lng: site.lng }),
       }));
-      setSites(sitesWithPaths);
+      setSites(sitesWithPathsAndToilets);
       setReligions(data.religions);
       setLoading(false);
     } catch (error) {

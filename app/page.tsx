@@ -6,6 +6,7 @@ import { useSites } from '@/hooks/useSites';
 import SiteCard from '@/components/SiteCard';
 import NearbySites from '@/components/NearbySites';
 import InteractiveMap from '@/components/InteractiveMap';
+import ToiletFinder from '@/components/ToiletFinder';
 
 export default function Home() {
   const { sites, religions, loading, getSitesByReligion } = useSites();
@@ -117,6 +118,9 @@ export default function Home() {
 
       {/* Nearby Sites Section */}
       <NearbySites />
+
+      {/* Toilet Finder Section */}
+      <ToiletFinder />
 
       {/* Religion Filter */}
       <section className="bg-gray-50 px-4 py-8 sticky top-0 z-40 border-b border-gray-200 shadow-sm">
