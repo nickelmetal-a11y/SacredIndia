@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import sitesData from '@/data/sites.json';
+import sitesData from '@/src/data/sites.json';
 
 export interface Religion {
   label: string;
