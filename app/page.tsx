@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useSites } from '@/src/hooks/useSites';
-import SiteCard from '@/src/components/SiteCard';
+import { useSites } from '@/hooks/useSites';
+import SiteCard from '@/components/SiteCard';
 
 export default function Home() {
   const { sites, religions, loading, getSitesByReligion } = useSites();
