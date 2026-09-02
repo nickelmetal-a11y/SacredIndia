@@ -1,10 +1,16 @@
 'use client';
 
 import { useState } from 'react';
+import { Toilet } from '@/hooks/useSites';
 import { useGeolocation } from '@/hooks/useGeolocation';
 import { useSites } from '@/hooks/useSites';
 import { calculateDistance } from '@/utils/distance';
 import ToiletCard from './ToiletCard';
+
+interface ToiletWithDistance extends Toilet {
+  siteName: string;
+  distance: number;
+}
 
 export default function ToiletFinder() {
   const { location, loading: geoLoading, error: geoError } = useGeolocation();
@@ -38,9 +44,9 @@ export default function ToiletFinder() {
   }
 
   // Collect all toilets from all sites and add distance
-  const allToilets = sites
+  const allToilets: ToiletWithDistance[] = sites
     .flatMap((site) =>
-      (site.toilets || []).map((toilet) => ({
+      (site.toilets || []).map((toilet): ToiletWithDistance => ({
         ...toilet,
         siteName: site.name,
         distance: calculateDistance(location, { lat: toilet.lat, lng: toilet.lng }),
