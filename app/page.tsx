@@ -1,103 +1,91 @@
 'use client';
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { useSites } from '@/hooks/useSites';
-import SiteCard from '@/components/SiteCard';
+import { useEffect, useState } from 'react';
+import PanchagWidget from '@/app/components/PanchagWidget';
+import NamazWidget from '@/app/components/NamazWidget';
+import SiteCard from '@/app/components/SiteCard';
 
 export default function Home() {
-  const { sites, religions, loading, getSitesByReligion } = useSites();
-  const [selectedReligion, setSelectedReligion] = useState<string>('');
+  const [location, setLocation] = useState<{ lat: number; lng: number } | null>(null);
+  const [nearestSite, setNearestSite] = useState<any>(null);
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading...</p>
-        </div>
-      </div>
-    );
-  }
-
-  const religionList = Object.entries(religions);
-  const filteredSites = selectedReligion ? getSitesByReligion(selectedReligion) : sites;
+  useEffect(() => {
+    // Get GPS location
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((pos) => {
+        setLocation({ lat: pos.coords.latitude, lng: pos.coords.longitude });
+        // Mock nearest site (in real app, query Supabase)
+        setNearestSite({
+          name: 'Kashi Vishwanath',
+          faith: 'hindu',
+          emoji: '🛕',
+          distance: 2.3,
+          crowdLevel: 'medium'
+        });
+      }, (error) => {
+        console.log('GPS error:', error);
+        // Fallback to default location
+        setNearestSite({
+          name: 'Kashi Vishwanath',
+          faith: 'hindu',
+          emoji: '🛕',
+          distance: 2.3,
+          crowdLevel: 'medium'
+        });
+      });
+    }
+  }, []);
 
   return (
-    <div className="min-h-screen bg-white flex flex-col pb-24">
-      {/* App Header */}
-      <div className="bg-gradient-to-b from-blue-600 to-blue-500 text-white px-4 py-6">
-        <h1 className="text-2xl font-bold">Sacred India</h1>
-        <p className="text-blue-100 text-sm mt-1">Discover sacred sites</p>
-      </div>
-
-      {/* Main Content */}
-      <div className="flex-1 overflow-y-auto">
-        {/* Religion Filter */}
-        <section className="px-4 py-4 border-b border-gray-200">
-          <div className="flex flex-wrap gap-2">
-            <button
-              onClick={() => setSelectedReligion('')}
-              className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${
-                selectedReligion === ''
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-100 text-gray-700'
-              }`}
-            >
-              All
-            </button>
-            {religionList.map(([key, rel]) => (
-              <button
-                key={key}
-                onClick={() => setSelectedReligion(key)}
-                className="px-3 py-1.5 rounded-full text-xs font-semibold transition-all"
-                style={
-                  selectedReligion === key
-                    ? { backgroundColor: rel.color, color: 'white' }
-                    : { backgroundColor: '#f3f4f6', color: rel.color }
-                }
-              >
-                {rel.emoji}
-              </button>
-            ))}
-          </div>
-        </section>
-
-        {/* Sites Grid */}
-        <section className="px-4 py-6">
-          {filteredSites.length > 0 ? (
-            <div className="grid grid-cols-1 gap-4">
-              {filteredSites.map(site => (
-                <SiteCard
-                  key={site.id}
-                  site={site}
-                  religion={religions[site.religion as keyof typeof religions]}
-                />
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-12">
-              <p className="text-gray-500">No sites found</p>
-            </div>
-          )}
-        </section>
-      </div>
-
-      {/* Bottom Navigation Bar */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-3 flex justify-around">
-        <Link href="/" className="flex flex-col items-center text-blue-600 hover:text-blue-700">
-          <span className="text-2xl mb-1">🏠</span>
-          <span className="text-xs font-semibold">Home</span>
-        </Link>
-        <Link href="/sites" className="flex flex-col items-center text-gray-600 hover:text-gray-700">
-          <span className="text-2xl mb-1">🗂️</span>
-          <span className="text-xs font-semibold">All Sites</span>
-        </Link>
-        <div className="flex flex-col items-center text-gray-600">
-          <span className="text-2xl mb-1">⚙️</span>
-          <span className="text-xs font-semibold">Settings</span>
+    <div className="px-4 py-6 max-w-3xl">
+      {/* Nearest Site Card */}
+      {nearestSite && (
+        <div className="mb-6">
+          <h2 className="text-lg font-bold text-gray-800 mb-2">📍 Nearest Sacred Site</h2>
+          <SiteCard {...nearestSite} />
         </div>
-      </nav>
+      )}
+
+      {/* Panchang Widget */}
+      <PanchagWidget />
+
+      {/* Namaz Widget */}
+      <NamazWidget />
+
+      {/* Lamp Dedication */}
+      <div className="bg-gradient-to-r from-purple-50 to-pink-50 border-l-4 border-purple-500 p-4 rounded-lg mb-4">
+        <h3 className="font-bold text-lg text-gray-800 mb-2">🪔 Light a Lamp</h3>
+        <p className="text-sm text-gray-600 mb-3">Dedicate a lamp to someone special</p>
+        <button className="w-full bg-purple-600 text-white py-2 rounded-lg font-semibold hover:bg-purple-700 transition-colors">
+          Light a Diya
+        </button>
+      </div>
+
+      {/* WhatsApp Quick Actions */}
+      <div className="bg-white border border-gray-200 rounded-lg p-4 mb-4">
+        <h3 className="font-bold text-gray-800 mb-3">💬 Quick WhatsApp Actions</h3>
+        <div className="grid grid-cols-2 gap-2">
+          <button className="bg-green-600 text-white py-2 rounded-lg text-sm font-semibold hover:bg-green-700">
+            📅 Share Panchang
+          </button>
+          <button className="bg-green-600 text-white py-2 rounded-lg text-sm font-semibold hover:bg-green-700">
+            📋 Share Trip Plan
+          </button>
+          <button className="bg-green-600 text-white py-2 rounded-lg text-sm font-semibold hover:bg-green-700">
+            🙏 Book a Puja
+          </button>
+          <button className="bg-green-600 text-white py-2 rounded-lg text-sm font-semibold hover:bg-green-700">
+            ➕ Request Site
+          </button>
+        </div>
+      </div>
+
+      {/* Location Display */}
+      {location && (
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-xs text-gray-600">
+          📍 Location: {location.lat.toFixed(4)}, {location.lng.toFixed(4)}
+        </div>
+      )}
     </div>
   );
 }
