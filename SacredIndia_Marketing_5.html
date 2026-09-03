@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Sacred India — Every Faith. Every Site. Every Step.</title>
+<meta name="description" content="India's first multi-faith pilgrimage app. Remote puja video on WhatsApp. 85+ sacred sites. 7 religions. Panchang timing. Transport to every site. Book pandits, khadims, guides.">
+<meta name="keywords" content="remote puja online, kashi rudrabhishek online, tirupati abhishekam online, sacred india app, pilgrimage app india, NRI puja booking, pandit booking online, dargah chadar offering, golden temple ardas">
+<meta property="og:title" content="Sacred India — Every Faith. Every Site. Every Step.">
+<meta property="og:description" content="Book Remote Puja from anywhere. Video delivered on WhatsApp. 85+ sacred sites. 7 faiths. Pandits, guides, prasad — all verified.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sacredindia.app">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sacred India — Multi-Faith Pilgrimage App">
+<meta name="twitter:description" content="Book Remote Puja. Get video on WhatsApp in 2 hours. 85+ sacred sites across 7 faiths.">
+<link rel="canonical" href="https://sacredindia.app">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"MobileApplication","name":"Sacred India","applicationCategory":"LifestyleApplication","operatingSystem":"Web","description":"India first multi-faith pilgrimage app with remote puja booking, WhatsApp video delivery, and transport to 85+ sacred sites across 7 religions.","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","ratingCount":"1000"}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500&family=Noto+Naskh+Arabic:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#07040e;--navy2:#120829;--navy3:#1c0e3a;
+  --saffron:#C85A1A;--saff-l:#F5C4A0;--saff-p:#FDF0E6;
+  --gold:#E8A020;--gold-l:#FFD580;
+  --wa:#25D366;--wa-d:#128C4A;--wa-l:#dcfce7;
+  --off:#FAF8F3;--dark:#1A0A2E;--mid:#6b5b4e;--light:#9a8a7a;
+  --border:#ede5dc;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--off);color:var(--dark);overflow-x:hidden;}
+
+/* ── ANIMATIONS ─────────────────────────────── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes glow{0%,100%{box-shadow:0 0 20px rgba(200,90,26,.3)}50%{box-shadow:0 0 52px rgba(200,90,26,.65)}}
+@keyframes waGlow{0%,100%{box-shadow:0 0 18px rgba(37,211,102,.25)}50%{box-shadow:0 0 48px rgba(37,211,102,.55)}}
+@keyframes badgePop{0%{transform:scale(.2) rotate(-15deg);opacity:0}70%{transform:scale(1.1) rotate(2deg)}100%{transform:scale(1);opacity:1}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pathReveal{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:translateX(0)}}
+
+.fu{animation:fadeUp .75s ease both;}
+.d1{animation-delay:.1s}.d2{animation-delay:.22s}.d3{animation-delay:.36s}.d4{animation-delay:.52s}.d5{animation-delay:.68s}
+
+/* ── LANG BAR ───────────────────────────────── */
+#lang-bar{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(7,4,14,.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.07);display:flex;align-items:center;justify-content:space-between;padding:8px 20px;gap:8px;flex-wrap:wrap;}
+#lang-bar .logo{font-family:'Cormorant Garamond',serif;font-size:19px;color:#fff;font-weight:600;white-space:nowrap;}
+#lang-bar .logo em{color:var(--gold-l);font-style:normal;}
+.lpills{display:flex;gap:4px;flex-wrap:wrap;}
+.lp{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:4px 10px;font-size:10px;color:rgba(255,255,255,.5);cursor:pointer;transition:all .2s;white-space:nowrap;font-family:'Outfit',sans-serif;}
+.lp:hover{background:rgba(255,255,255,.11);}
+.lp.on{background:var(--saffron);border-color:var(--saffron);color:#fff;font-weight:700;}
+
+/* ── TICKER ─────────────────────────────────── */
+.ticker{background:var(--saffron);padding:9px 0;overflow:hidden;margin-top:52px;}
+.tick-inner{display:flex;white-space:nowrap;animation:ticker 30s linear infinite;}
+.tick-item{display:inline-flex;align-items:center;gap:6px;padding:0 26px;font-size:11.5px;font-weight:600;color:#fff;}
+.tick-dot{color:rgba(255,255,255,.4);font-size:14px;}
+
+/* ── HERO ───────────────────────────────────── */
+.hero{min-height:100vh;padding:80px 24px 70px;background:var(--navy);position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;text-align:center;}
+.hero::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 50% at 20% 30%,rgba(200,90,26,.12),transparent 70%),radial-gradient(ellipse 40% 60% at 80% 70%,rgba(37,211,102,.07),transparent 70%),radial-gradient(ellipse 30% 40% at 50% 50%,rgba(232,160,32,.06),transparent 70%);}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;}
+.o1{width:340px;height:340px;background:rgba(200,90,26,.09);top:-70px;left:-80px;animation:float 8s ease-in-out infinite;}
+.o2{width:260px;height:260px;background:rgba(37,211,102,.07);bottom:5%;right:-50px;animation:float 7s ease-in-out infinite;animation-delay:-3s;}
+.o3{width:200px;height:200px;background:rgba(232,160,32,.07);top:40%;left:4%;animation:float 9s ease-in-out infinite;animation-delay:-5s;}
+
+.faith-row{display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin-bottom:28px;}
+.fpill{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:5px 14px;font-size:12px;color:rgba(255,255,255,.55);font-weight:500;}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--saffron);margin-bottom:14px;}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(56px,10vw,116px);font-weight:600;color:#fff;line-height:.96;margin-bottom:10px;}
+.hero-title .s{background:linear-gradient(90deg,var(--gold-l),var(--saff-l),#fff,var(--gold-l));background-size:250% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 5s linear infinite;}
+.hero-wa-tag{display:inline-flex;align-items:center;gap:7px;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.28);border-radius:22px;padding:6px 16px;font-size:12px;color:#4ade80;font-weight:600;margin-bottom:20px;}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(17px,2.8vw,25px);color:rgba(255,255,255,.38);font-style:italic;margin-bottom:36px;max-width:560px;line-height:1.6;}
+.cta-row{display:flex;gap:11px;justify-content:center;flex-wrap:wrap;margin-bottom:56px;}
+.btn-wa{background:var(--wa);color:#fff;border:none;border-radius:50px;padding:15px 36px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;text-decoration:none;display:inline-flex;align-items:center;gap:8px;animation:waGlow 3s ease-in-out infinite;transition:transform .2s;}
+.btn-wa:hover{transform:scale(1.04);}
+.btn-p{background:var(--saffron);color:#fff;border:none;border-radius:50px;padding:15px 36px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;text-decoration:none;display:inline-flex;align-items:center;gap:8px;animation:glow 3s ease-in-out infinite;transition:transform .2s;}
+.btn-p:hover{transform:scale(1.04);}
+.btn-s{background:rgba(255,255,255,.07);color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.18);border-radius:50px;padding:15px 32px;font-size:15px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;text-decoration:none;display:inline-block;transition:all .2s;}
+.btn-s:hover{background:rgba(255,255,255,.12);}
+.stat-row{display:flex;gap:44px;justify-content:center;flex-wrap:wrap;}
+.stat .n{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:700;color:var(--gold-l);line-height:1;margin-bottom:4px;}
+.stat .l{font-size:10px;color:rgba(255,255,255,.28);text-transform:uppercase;letter-spacing:2px;font-weight:500;}
+
+/* ── SECTIONS ────────────────────────────────── */
+.sec{padding:90px 24px;max-width:1120px;margin:0 auto;}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,5vw,62px);font-weight:600;color:var(--dark);text-align:center;line-height:1.1;margin-bottom:12px;}
+.sec-sub{font-size:15px;color:var(--mid);text-align:center;max-width:580px;margin:0 auto 50px;line-height:1.75;}
+.ey{font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--saffron);text-align:center;margin-bottom:14px;display:block;}
+.dark{background:var(--navy);padding:90px 24px;}
+.dark .sec-title,.dark .ey{color:#fff;}
+.wa-dark{background:linear-gradient(155deg,#061a0e,#0a2818,#041208);padding:90px 24px;position:relative;overflow:hidden;}
+.wa-dark::before{content:'💬';position:absolute;font-size:380px;right:-50px;top:50%;transform:translateY(-50%);opacity:.025;pointer-events:none;line-height:1;}
+.wa-dark .ey{color:#4ade80;}
+.wa-dark .sec-title{color:#fff;}
+.wa-dark .sec-sub{color:rgba(255,255,255,.42);}
+
+/* ── PROBLEM ─────────────────────────────────── */
+.prob-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;max-width:1000px;margin:0 auto 36px;}
+.prob-c{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:24px 20px;transition:border-color .3s;}
+.prob-c:hover{border-color:rgba(200,90,26,.3);}
+.prob-c .ico{font-size:28px;margin-bottom:12px;}
+.prob-c h4{font-size:14px;font-weight:700;color:#fff;margin-bottom:7px;}
+.prob-c p{font-size:12.5px;color:rgba(255,255,255,.38);line-height:1.68;}
+.prob-c .sol{margin-top:10px;font-size:11.5px;color:rgba(37,211,102,.75);font-weight:600;}
+.prob-ans{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,3.5vw,34px);color:var(--gold-l);font-style:italic;max-width:700px;margin:38px auto 0;line-height:1.45;text-align:center;}
+
+/* ── APP JOURNEY ─────────────────────────────── */
+/* Phone frame */
+.phone-wrap{display:flex;justify-content:center;margin-bottom:60px;}
+.phone{width:280px;background:var(--navy2);border-radius:36px;border:3px solid rgba(255,255,255,.12);overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5);position:relative;}
+.phone-bar{background:rgba(255,255,255,.04);padding:10px 16px 8px;display:flex;gap:4px;border-bottom:1px solid rgba(255,255,255,.07);overflow-x:auto;scrollbar-width:none;}
+.phone-bar::-webkit-scrollbar{display:none;}
+.ptab{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:3px;padding:4px 8px;border-radius:10px;cursor:pointer;transition:background .2s;}
+.ptab.a{background:rgba(200,90,26,.2);}
+.ptab .pi{font-size:16px;}
+.ptab .pl{font-size:7px;color:rgba(255,255,255,.4);white-space:nowrap;}
+.ptab.a .pl{color:var(--saff-l);font-weight:700;}
+.phone-screen{min-height:360px;position:relative;overflow:hidden;}
+.pscreen{position:absolute;inset:0;padding:16px;opacity:0;transform:translateY(8px);transition:all .3s;pointer-events:none;}
+.pscreen.a{opacity:1;transform:translateY(0);pointer-events:all;}
+.ps-title{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:#fff;margin-bottom:10px;}
+.ps-item{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:9px 11px;margin-bottom:7px;font-size:11px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px;}
+.ps-item .i{font-size:16px;flex-shrink:0;}
+.ps-item .tx{flex:1;line-height:1.45;}
+.ps-item .tx strong{color:#fff;display:block;font-size:11.5px;margin-bottom:1px;}
+.ps-item .badge{background:rgba(200,90,26,.2);border:1px solid rgba(200,90,26,.4);border-radius:6px;padding:1px 7px;font-size:9px;color:var(--saff-l);font-weight:700;white-space:nowrap;}
+.ps-item .wa-badge{background:rgba(37,211,102,.15);border:1px solid rgba(37,211,102,.35);border-radius:6px;padding:1px 7px;font-size:9px;color:#4ade80;font-weight:700;white-space:nowrap;}
+
+/* Feature path cards */
+.journey-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;max-width:1120px;margin:0 auto;}
+.jcard{background:#fff;border-radius:20px;padding:24px 22px;border:1.5px solid var(--border);transition:all .3s;position:relative;overflow:hidden;}
+.jcard::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent,var(--saffron));opacity:0;transition:opacity .3s;}
+.jcard:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.08);}
+.jcard:hover::after{opacity:1;}
+.jcard-top{display:flex;align-items:flex-start;gap:13px;margin-bottom:14px;}
+.jcard-ico{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.jcard-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--dark);line-height:1.2;margin-bottom:4px;}
+.jcard-sub{font-size:12px;color:var(--mid);line-height:1.55;}
+/* Path breadcrumbs */
+.path{display:flex;align-items:center;flex-wrap:wrap;gap:5px;margin-top:14px;padding-top:13px;border-top:1px solid var(--border);}
+.path-step{display:inline-flex;align-items:center;gap:4px;background:var(--off);border:1px solid var(--border);border-radius:8px;padding:3px 9px;font-size:10.5px;color:var(--dark);font-weight:600;white-space:nowrap;}
+.path-step.tab{background:var(--saff-p);border-color:var(--saff-l);color:var(--saffron);}
+.path-step.wa{background:#f0fdf4;border-color:#bbf7d0;color:var(--wa-d);}
+.path-step.new{background:#fef9f0;border-color:#fde68a;color:#d97706;}
+.path-arrow{color:#ccc;font-size:11px;flex-shrink:0;}
+.jcard-new{position:absolute;top:14px;right:14px;background:var(--saffron);color:#fff;border-radius:7px;padding:2px 8px;font-size:9.5px;font-weight:700;letter-spacing:.5px;}
+.jcard-wa{position:absolute;top:14px;right:14px;background:var(--wa);color:#fff;border-radius:7px;padding:2px 8px;font-size:9.5px;font-weight:700;}
+
+/* Tab section headers */
+.tab-header{display:flex;align-items:center;gap:12px;margin-bottom:20px;margin-top:8px;}
+.tab-pill{display:inline-flex;align-items:center;gap:7px;background:var(--navy);border-radius:50px;padding:8px 18px;font-size:13px;font-weight:700;color:#fff;}
+.tab-desc{font-size:13px;color:var(--mid);}
+
+/* ── REMOTE PUJA ─────────────────────────────── */
+.puja-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-bottom:36px;}
+.puja-c{background:rgba(255,255,255,.04);border:1.5px solid rgba(232,160,32,.18);border-radius:18px;padding:20px 18px;transition:all .3s;}
+.puja-c:hover{border-color:rgba(232,160,32,.4);transform:translateY(-3px);}
+.puja-c .temple{font-size:10.5px;font-weight:700;color:rgba(255,213,128,.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:9px;}
+.puja-c h4{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:#fff;margin-bottom:10px;line-height:1.25;}
+.seva-row{background:rgba(255,255,255,.04);border-radius:10px;padding:9px 12px;margin-bottom:7px;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+.seva-row .nm{font-size:11.5px;color:rgba(255,255,255,.65);flex:1;}
+.seva-row .pr{font-size:13px;font-weight:700;color:var(--gold-l);white-space:nowrap;}
+.seva-incl{font-size:10px;color:rgba(37,211,102,.7);margin-top:6px;font-weight:600;}
+.how-steps{display:flex;flex-direction:column;gap:8px;max-width:540px;}
+.how-step{display:flex;align-items:flex-start;gap:11px;font-size:13px;color:rgba(255,255,255,.7);}
+.how-step .num{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;}
+
+/* ── WA FEATURES ─────────────────────────────── */
+.wa-feat{background:rgba(255,255,255,.04);border:1.5px solid rgba(37,211,102,.18);border-radius:18px;padding:20px 18px;transition:all .3s;}
+.wa-feat:hover{border-color:rgba(37,211,102,.45);background:rgba(255,255,255,.06);}
+.wa-feat .wico{width:42px;height:42px;border-radius:11px;background:rgba(37,211,102,.1);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:12px;}
+.wa-feat h4{font-size:13.5px;font-weight:700;color:#fff;margin-bottom:5px;}
+.wa-feat p{font-size:12px;color:rgba(255,255,255,.4);line-height:1.6;}
+.wa-feat .pr{font-size:10.5px;color:#4ade80;font-weight:700;margin-top:7px;}
+
+/* WA Chat mockup */
+.wa-chat{background:#0b1418;border-radius:18px;overflow:hidden;max-width:340px;box-shadow:0 20px 60px rgba(0,0,0,.5);}
+.wc-hdr{background:#1f2c33;padding:12px 14px;display:flex;align-items:center;gap:10px;}
+.wc-hdr .av{width:38px;height:38px;border-radius:50%;background:var(--saffron);display:flex;align-items:center;justify-content:center;font-size:19px;}
+.wc-hdr .nm{font-size:13.5px;font-weight:600;color:#e9edef;}
+.wc-hdr .st{font-size:10.5px;color:rgba(233,237,239,.4);}
+.wc-msgs{padding:12px 10px;display:flex;flex-direction:column;gap:7px;}
+.wm{max-width:80%;font-size:11.5px;line-height:1.5;border-radius:8px;padding:8px 11px;}
+.wm.r{background:#1f2c33;color:#e9edef;align-self:flex-start;border-radius:2px 8px 8px 8px;}
+.wm.s{background:#005c4b;color:#e9edef;align-self:flex-end;border-radius:8px 2px 8px 8px;}
+.wm .ts{font-size:9px;color:rgba(233,237,239,.35);text-align:right;margin-top:3px;}
+.wm .tc{color:#53bdeb;font-size:11px;}
+.wm b{font-weight:700;}
+.wm .g{color:#25d366;}
+
+/* ── 7 FAITHS ────────────────────────────────── */
+.faith-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:13px;max-width:1000px;margin:0 auto;}
+.faith-c{border-radius:20px;padding:24px 13px 20px;text-align:center;border:1.5px solid;transition:all .25s;}
+.faith-c:hover{transform:translateY(-5px);}
+.faith-c .em{font-size:38px;margin-bottom:9px;display:block;}
+.faith-c h4{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:#fff;margin-bottom:4px;}
+.faith-c .nat{font-size:11.5px;opacity:.4;color:#fff;margin-bottom:7px;}
+.faith-c p{font-size:10.5px;color:rgba(255,255,255,.35);line-height:1.6;}
+
+/* ── HOW ─────────────────────────────────────── */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0;max-width:1000px;margin:0 auto;position:relative;}
+.steps::before{content:'';position:absolute;top:36px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(200,90,26,.25),rgba(200,90,26,.25),transparent);}
+.step{text-align:center;padding:0 12px;position:relative;z-index:1;}
+.sn{width:52px;height:52px;border-radius:50%;border:2px solid var(--saffron);background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:18px;margin:0 auto 14px;position:relative;}
+.sn::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:1px solid rgba(200,90,26,.18);}
+.step h4{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:#fff;margin-bottom:5px;}
+.step p{font-size:11.5px;color:rgba(255,255,255,.32);line-height:1.6;}
+
+/* ── STORIES ─────────────────────────────────── */
+.pers{background:#fff;border-radius:20px;padding:28px 24px;border:1.5px solid var(--border);position:relative;}
+.pers::before{content:'"';font-family:'Cormorant Garamond',serif;font-size:72px;color:var(--saff-l);position:absolute;top:8px;left:16px;line-height:1;opacity:.3;}
+.pers blockquote{font-family:'Cormorant Garamond',serif;font-size:16.5px;font-style:italic;color:var(--dark);line-height:1.65;margin-bottom:16px;padding-top:26px;}
+.pinfo{display:flex;align-items:center;gap:10px;}
+.pav{width:40px;height:40px;border-radius:50%;font-size:20px;display:flex;align-items:center;justify-content:center;}
+.pnm{font-size:13px;font-weight:700;color:var(--dark);margin-bottom:2px;}
+.pro{font-size:11px;color:var(--light);}
+
+/* ── MARKET ──────────────────────────────────── */
+.mnum{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:26px 20px;text-align:center;}
+.mnum .big{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:var(--gold-l);line-height:1;margin-bottom:5px;}
+.mnum .lbl{font-size:11.5px;color:rgba(255,255,255,.38);line-height:1.6;}
+
+/* ── GUIDE LISTING ───────────────────────────── */
+.guide-c{background:#fff;border-radius:16px;padding:20px 18px;border:1.5px solid var(--border);}
+.guide-c .head{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.guide-c .av{width:44px;height:44px;border-radius:11px;background:var(--saff-p);display:flex;align-items:center;justify-content:center;font-size:22px;}
+.guide-c .nm{font-size:13.5px;font-weight:700;color:var(--dark);}
+.guide-c .tp{font-size:10px;color:var(--mid);text-transform:uppercase;letter-spacing:.8px;margin-top:2px;}
+.stars{color:#f59e0b;font-size:11.5px;margin-bottom:3px;}
+.gprice{font-size:13px;font-weight:700;color:var(--saffron);}
+.verified{display:inline-flex;align-items:center;gap:4px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:7px;padding:2px 8px;font-size:10px;font-weight:700;color:#16a34a;margin-top:8px;}
+.wa-btn-sm{display:flex;align-items:center;justify-content:center;gap:6px;background:var(--wa);color:#fff;border:none;border-radius:10px;padding:8px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;text-decoration:none;margin-top:11px;width:100%;}
+
+/* ── SIMULATOR ───────────────────────────────── */
+.sim-wrap{background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.09);border-radius:24px;padding:28px 24px;max-width:860px;margin:0 auto;}
+.sim-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.sim-ctrl h5{font-size:9.5px;font-weight:700;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:9px;}
+.sim-faith-btns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px;}
+.sim-faith-btn{border-radius:10px;padding:5px 11px;font-size:11px;font-weight:600;cursor:pointer;border:1.5px solid;font-family:'Outfit',sans-serif;transition:all .2s;}
+.sim-sl{display:flex;flex-direction:column;gap:4px;margin-bottom:14px;}
+.sim-sl label{font-size:9.5px;font-weight:700;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:1px;display:flex;justify-content:space-between;}
+.sim-sl label span{color:rgba(255,255,255,.7);font-size:11px;}
+.sim-sl input[type=range]{-webkit-appearance:none;width:100%;height:5px;border-radius:4px;background:rgba(255,255,255,.1);outline:none;}
+.sim-sl input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;height:17px;border-radius:50%;background:var(--saffron);cursor:pointer;border:2px solid rgba(255,255,255,.4);}
+.sim-card{background:linear-gradient(135deg,#07040e,#1a0a2e);border-radius:18px;padding:20px;border:1.5px solid rgba(255,255,255,.07);position:relative;overflow:hidden;}
+.sim-card .bgem{position:absolute;font-size:90px;right:-8px;bottom:-8px;opacity:.055;line-height:1;}
+.sim-tier-badge{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;padding:2px 8px;border-radius:6px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.4);}
+.sim-name{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:#fff;margin:6px 0 4px;}
+.sim-faith-badge{border-radius:9px;padding:4px 11px;font-size:11px;font-weight:700;border:1.5px solid;display:inline-flex;align-items:center;gap:5px;}
+.sim-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin:13px 0;}
+.sim-stat{background:rgba(255,255,255,.04);border-radius:9px;padding:7px;text-align:center;}
+.sim-stat .v{font-size:20px;font-weight:700;color:#fff;font-family:'Cormorant Garamond',serif;line-height:1;}
+.sim-stat .l{font-size:8.5px;color:rgba(255,255,255,.28);text-transform:uppercase;letter-spacing:.7px;margin-top:2px;}
+.sim-prog-bg{background:rgba(255,255,255,.07);border-radius:7px;height:7px;margin-bottom:5px;}
+.sim-prog{height:7px;border-radius:7px;background:var(--saffron);transition:width .5s ease;}
+.sim-next{font-size:10px;color:rgba(255,255,255,.35);margin-bottom:12px;}
+.sim-badges-row{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:13px;}
+.sim-share-row{display:flex;gap:6px;}
+.sim-share-btn{flex:1;border:none;border-radius:10px;padding:9px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;display:flex;align-items:center;justify-content:center;gap:5px;transition:opacity .2s;}
+.sim-share-btn:hover{opacity:.88;}
+.sim-name-in{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:9px;padding:9px 12px;font-size:12px;font-family:'Outfit',sans-serif;color:#fff;outline:none;width:100%;margin-bottom:13px;}
+.sim-name-in::placeholder{color:rgba(255,255,255,.25);}
+.sim-confirm{font-size:10px;color:#4ade80;margin-top:7px;opacity:0;transition:opacity .3s;}
+
+/* ── FINAL CTA ───────────────────────────────── */
+.fcta{background:linear-gradient(155deg,var(--navy),var(--navy2) 45%,#041a0d);padding:110px 24px;text-align:center;position:relative;overflow:hidden;}
+.fcta::before{content:'🛕';position:absolute;font-size:340px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.018;animation:spin 90s linear infinite;pointer-events:none;line-height:1;}
+.fcta .ft{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,6vw,72px);font-weight:600;color:#fff;line-height:1.1;margin-bottom:13px;position:relative;}
+.fcta .fs{font-size:15px;color:rgba(255,255,255,.36);max-width:500px;margin:0 auto 36px;line-height:1.75;position:relative;}
+footer{background:#07040e;padding:40px 24px;text-align:center;color:rgba(255,255,255,.18);font-size:11px;line-height:2.4;}
+footer a{color:rgba(255,255,255,.28);text-decoration:none;}
+footer strong{color:rgba(255,255,255,.42);}
+
+/* ── TIER ────────────────────────────────────── */
+.tier-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:11px;margin-bottom:36px;max-width:900px;margin:0 auto 40px;}
+.tier-c{border-radius:15px;padding:18px 12px;text-align:center;border:1.5px solid;position:relative;overflow:hidden;}
+.tier-c .ti{font-size:32px;margin-bottom:7px;display:block;animation:pulse 3s ease-in-out infinite;}
+.tier-c .tn{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:700;margin-bottom:3px;}
+.tier-c .tr{font-size:9.5px;opacity:.45;line-height:1.5;}
+
+/* ── RESPONSIVE ──────────────────────────────── */
+@media(max-width:640px){
+  .steps::before{display:none;}
+  .sim-grid{grid-template-columns:1fr;}
+  .stat-row{gap:22px;}
+  .lpills{gap:3px;}
+  .lp{padding:3px 7px;font-size:9.5px;}
+  .wa-chat{max-width:100%;}
+  .phone-wrap{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- ── LANGUAGE BAR ─────────────────────────── -->
+<div id="lang-bar">
+  <div class="logo">Sacred <em>India</em></div>
+  <div class="lpills">
+    <button class="lp on" onclick="setLang('en')" data-lang="en">🇬🇧 English</button>
+    <button class="lp" onclick="setLang('hi')" data-lang="hi">🇮🇳 हिन्दी</button>
+    <button class="lp" onclick="setLang('ur')" data-lang="ur">🇵🇰 اردو</button>
+    <button class="lp" onclick="setLang('ta')" data-lang="ta">🇮🇳 தமிழ்</button>
+    <button class="lp" onclick="setLang('pa')" data-lang="pa">🇮🇳 ਪੰਜਾਬੀ</button>
+    <button class="lp" onclick="setLang('bn')" data-lang="bn">🇮🇳 বাংলা</button>
+    <button class="lp" onclick="setLang('mr')" data-lang="mr">🇮🇳 मराठी</button>
+    <button class="lp" onclick="setLang('gu')" data-lang="gu">🇮🇳 ગુજ</button>
+  </div>
+</div>
+
+<!-- ── TICKER ────────────────────────────────── -->
+<div class="ticker">
+  <div class="tick-inner">
+    <span class="tick-item">🛕 Kashi Vishwanath Rudrabhishek <strong>₹2,100</strong></span><span class="tick-dot">·</span>
+    <span class="tick-item">⚡ Tirupati Abhishekam <strong>₹3,000</strong></span><span class="tick-dot">·</span>
+    <span class="tick-item">🌹 Ajmer Chadar Offering <strong>₹1,500</strong></span><span class="tick-dot">·</span>
+    <span class="tick-item">🪯 Golden Temple Ardas <strong>₹1,100</strong></span><span class="tick-dot">·</span>
+    <span class="tick-item">☸️ Bodhi Tree Meditation <strong>₹999</strong></span><span class="tick-dot">·</span>
+    <span class="tick-item">💬 Video on WhatsApp within 2 hours — guaranteed</span><span class="tick-dot">·</span>
+    <span class="tick-item">🛕 Kashi Vishwanath Rudrabhishek <strong>₹2,100</strong></span><span class="tick-dot">·</span>
+    <span class="tick-item">⚡ Tirupati Abhishekam <strong>₹3,000</strong></span><span class="tick-dot">·</span>
+    <span class="tick-item">🌹 Ajmer Chadar Offering <strong>₹1,500</strong></span><span class="tick-dot">·</span>
+    <span class="tick-item">🪯 Golden Temple Ardas <strong>₹1,100</strong></span><span class="tick-dot">·</span>
+    <span class="tick-item">☸️ Bodhi Tree Meditation <strong>₹999</strong></span><span class="tick-dot">·</span>
+    <span class="tick-item">💬 Video on WhatsApp within 2 hours — guaranteed</span><span class="tick-dot">·</span>
+  </div>
+</div>
+
+<!-- ── HERO ──────────────────────────────────── -->
+<section class="hero">
+  <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+  <div class="faith-row fu">
+    <span class="fpill">🛕 <span data-t="faith_hindu">Hindu</span></span>
+    <span class="fpill">🕌 <span data-t="faith_islam">Islam</span></span>
+    <span class="fpill">✝️ <span data-t="faith_christian">Christian</span></span>
+    <span class="fpill">☸️ <span data-t="faith_buddhist">Buddhist</span></span>
+    <span class="fpill">⛩️ <span data-t="faith_jain">Jain</span></span>
+    <span class="fpill">🪯 <span data-t="faith_sikh">Sikh</span></span>
+    <span class="fpill">🔥 <span data-t="faith_zoroastrian">Zoroastrian</span></span>
+  </div>
+  <div class="eyebrow fu d1" data-t="hero_eyebrow">India's First Multi-Faith Pilgrimage App</div>
+  <h1 class="hero-title fu d2">Sacred<br><span class="s">India</span></h1>
+  <div class="hero-wa-tag fu d3">💬 <span data-t="hero_wa_tag">WhatsApp-deep. Every feature. Every faith.</span></div>
+  <p class="hero-sub fu d3" data-t="hero_sub">12 tabs. 85+ sacred sites. 7 faiths. Panchang timing. Transport to every site. Remote puja — video on WhatsApp.</p>
+  <div class="cta-row fu d4">
+    <a href="https://wa.me/?text=I%20want%20to%20try%20Sacred%20India" target="_blank" class="btn-wa">💬 <span data-t="cta_wa">Book Remote Puja on WhatsApp</span></a>
+    <a href="#journey" class="btn-p" data-t="cta_app">Explore the App</a>
+  </div>
+  <div class="stat-row fu d5">
+    <div class="stat"><div class="n">7</div><div class="l" data-t="stat1">Faiths</div></div>
+    <div class="stat"><div class="n">12</div><div class="l" data-t="stat2">App Tabs</div></div>
+    <div class="stat"><div class="n">85+</div><div class="l" data-t="stat3">Sacred Sites</div></div>
+    <div class="stat"><div class="n">₹10.8B</div><div class="l" data-t="stat4">Market Size</div></div>
+  </div>
+</section>
+
+<!-- ── PROBLEM ────────────────────────────────── -->
+<section class="dark">
+  <div style="max-width:1100px;margin:0 auto;text-align:center;">
+    <span class="ey" data-t="prob_eyebrow">The problem we solve</span>
+    <h2 class="sec-title" style="max-width:740px;margin:0 auto 40px;color:#fff;" data-t="prob_title">900 million pilgrims. No app built for them.</h2>
+    <div class="prob-grid">
+      <div class="prob-c"><div class="ico">📵</div><h4 data-t="p1h">No signal at the site</h4><p data-t="p1p">Kedarnath, Hemkund Sahib, remote dargahs — zero connectivity. Most apps die here.</p><div class="sol" data-t="p1s">✓ Offline packs per site</div></div>
+      <div class="prob-c"><div class="ico">🕐</div><h4 data-t="p2h">Visiting at the wrong time</h4><p data-t="p2p">Maha Shivaratri at Varanasi means 12-hour queues. Brahmotsavam means 30,000/day. Nobody warns you.</p><div class="sol" data-t="p2s">✓ Crowd intelligence + panchang/namaz timing</div></div>
+      <div class="prob-c"><div class="ico">🎭</div><h4 data-t="p3h">Fake pandits, inflated prices</h4><p data-t="p3p">₹500 puja quoted as ₹5,000 at the gate. No way to know costs before you arrive.</p><div class="sol" data-t="p3s">✓ Verified guides. Fixed prices. Trust badges.</div></div>
+      <div class="prob-c"><div class="ico">✈️</div><h4 data-t="p4h">Can't travel — but still want to pray</h4><p data-t="p4p">5 million NRIs. Elderly parents. Daughters who can't leave work. They want their puja to happen.</p><div class="sol" data-t="p4s">✓ Remote Puja — verified pandit, video on WhatsApp</div></div>
+    </div>
+    <p class="prob-ans" data-t="prob_answer">"Sacred India is the guide that was always missing — in the language the prayer was written, at the moment of darshan."</p>
+  </div>
+</section>
+
+<!-- ── APP JOURNEY ────────────────────────────── -->
+<section id="journey" style="background:var(--off);padding:90px 24px;">
+  <div style="max-width:1120px;margin:0 auto;">
+    <span class="ey" data-t="journey_eyebrow">Inside the app — complete drill-down</span>
+    <h2 class="sec-title" data-t="journey_title">12 tabs. Every path. Every feature.</h2>
+    <p class="sec-sub" data-t="journey_sub">Each card below shows the exact navigation path to reach that feature. Tap a tab name → follow the arrows → you're there.</p>
+
+    <!-- Phone mockup -->
+    <div class="phone-wrap">
+      <div class="phone">
+        <div class="phone-bar" id="pbar">
+          <div class="ptab a" data-screen="s-home" onclick="switchScreen('home')"><div class="pi">🏠</div><div class="pl">Home</div></div>
+          <div class="ptab" data-screen="s-explore" onclick="switchScreen('explore')"><div class="pi">🗺️</div><div class="pl">Explore</div></div>
+          <div class="ptab" data-screen="s-ai" onclick="switchScreen('ai')"><div class="pi">🤖</div><div class="pl">AI Guide</div></div>
+          <div class="ptab" data-screen="s-services" onclick="switchScreen('services')"><div class="pi">🛍️</div><div class="pl">Services</div></div>
+          <div class="ptab" data-screen="s-badges" onclick="switchScreen('badges')"><div class="pi">🏅</div><div class="pl">Badges</div></div>
+          <div class="ptab" data-screen="s-texts" onclick="switchScreen('texts')"><div class="pi">📜</div><div class="pl">Texts</div></div>
+          <div class="ptab" data-screen="s-family" onclick="switchScreen('family')"><div class="pi">👨‍👩‍👧</div><div class="pl">Family</div></div>
+        </div>
+        <div class="phone-screen">
+          <div class="pscreen a" id="s-home">
+            <div class="ps-title">🏠 Home</div>
+            <div class="ps-item"><div class="i">📍</div><div class="tx"><strong>GPS: Nearest sacred site</strong>Detects your location. Shows nearest site across all 7 faiths instantly.</div></div>
+            <div class="ps-item"><div class="i">🌙</div><div class="tx"><strong>Live Panchang / Namaz times</strong>Tithi, nakshatra, auspicious indicator. Fajr–Isha for Islam.</div><span class="badge">NEW</span></div>
+            <div class="ps-item"><div class="i">💬</div><div class="tx"><strong>WhatsApp quick actions</strong>Daily panchang · Share plan · Book puja · Request site</div><span class="wa-badge">WA</span></div>
+          </div>
+          <div class="pscreen" id="s-explore">
+            <div class="ps-title">🗺️ Explore</div>
+            <div class="ps-item"><div class="i">🏛️</div><div class="tx"><strong>Site cards (all 7 faiths)</strong>Tap any site → story, scripture, bookings, transport, crowd.</div></div>
+            <div class="ps-item"><div class="i">🚂</div><div class="tx"><strong>Transport section</strong>Train · Bus · Helicopter · Dharmshala — per site.</div><span class="badge">NEW</span></div>
+            <div class="ps-item"><div class="i">🟢</div><div class="tx"><strong>Crowd intelligence</strong>Best/worst days. Festival warnings. Live indicator.</div><span class="badge">NEW</span></div>
+            <div class="ps-item"><div class="i">♿</div><div class="tx"><strong>Senior mode toggle</strong>Wheelchair info, step counts, priority queues.</div></div>
+          </div>
+          <div class="pscreen" id="s-ai">
+            <div class="ps-title">🤖 AI Guide</div>
+            <div class="ps-item"><div class="i">💬</div><div class="tx"><strong>Ask anything</strong>History, scripture, ritual, timing — all faiths. Claude-powered.</div></div>
+            <div class="ps-item"><div class="i">🎤</div><div class="tx"><strong>Voice input</strong>Hindi, English, Tamil, Telugu, Bengali. Language toggle bar.</div><span class="badge">NEW</span></div>
+            <div class="ps-item"><div class="i">📤</div><div class="tx"><strong>Share to WhatsApp</strong>Send your AI conversation to the family group in one tap.</div><span class="wa-badge">WA</span></div>
+          </div>
+          <div class="pscreen" id="s-services">
+            <div class="ps-title">🛍️ Services</div>
+            <div class="ps-item"><div class="i">🙏</div><div class="tx"><strong>Remote Puja</strong>5 temples · 11 sevas · ₹999–₹7,500 · Video on WA.</div><span class="wa-badge">WA</span></div>
+            <div class="ps-item"><div class="i">🌸</div><div class="tx"><strong>Prasad Delivery</strong>Tirupati, Kashi, Ajmer, Golden Temple. Ships anywhere in India.</div></div>
+            <div class="ps-item"><div class="i">🧑‍⚖️</div><div class="tx"><strong>Verified guides</strong>Pandits, khadims, pilgrim guides. Direct WhatsApp contact.</div></div>
+          </div>
+          <div class="pscreen" id="s-badges">
+            <div class="ps-title">🏅 Badges</div>
+            <div class="ps-item"><div class="i">🌱</div><div class="tx"><strong>5 tiers</strong>Seeker → Pilgrim → Devotee → Sage → Legend</div></div>
+            <div class="ps-item"><div class="i">🛤️</div><div class="tx"><strong>7 faith tracks</strong>Char Dham Yatri · Chishti Silsila · Apostle's Path · Noble Eightfold…</div></div>
+            <div class="ps-item"><div class="i">📤</div><div class="tx"><strong>Share milestones</strong>WhatsApp · Twitter · Instagram — one tap.</div><span class="wa-badge">WA</span></div>
+          </div>
+          <div class="pscreen" id="s-texts">
+            <div class="ps-title">📜 Texts</div>
+            <div class="ps-item"><div class="i">🕉️</div><div class="tx"><strong>Original language scriptures</strong>Sanskrit · Arabic · Pali · Gurmukhi · Prakrit · Avestan</div></div>
+            <div class="ps-item"><div class="i">🔊</div><div class="tx"><strong>Audio playback</strong>Tap listen — scripture read aloud in the original language.</div></div>
+            <div class="ps-item"><div class="i">💬</div><div class="tx"><strong>Share verse to WhatsApp</strong>Send any scripture verse to your family group.</div><span class="wa-badge">WA</span></div>
+          </div>
+          <div class="pscreen" id="s-family">
+            <div class="ps-title">👨‍👩‍👧 Family</div>
+            <div class="ps-item"><div class="i">👥</div><div class="tx"><strong>Group size selector</strong>2–15+ people. Mixed ages, seniors, young children.</div></div>
+            <div class="ps-item"><div class="i">♿</div><div class="tx"><strong>Accessibility filters</strong>Senior tips, kids info, wheelchair access shown per site.</div></div>
+            <div class="ps-item"><div class="i">💬</div><div class="tx"><strong>Share trip plan to WA group</strong>Generate full itinerary → send to family WhatsApp in one tap.</div><span class="wa-badge">WA</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature path cards grouped by tab -->
+
+    <!-- HOME TAB -->
+    <div class="tab-header">
+      <div class="tab-pill">🏠 Home Tab</div>
+      <div class="tab-desc">The first screen. GPS-aware. Panchang-aware. WhatsApp-connected.</div>
+    </div>
+    <div class="journey-grid" style="margin-bottom:40px;">
+      <div class="jcard" style="--accent:#C85A1A;">
+        <div class="jcard-new">GPS</div>
+        <div class="jcard-top">
+          <div class="jcard-ico" style="background:#FDF0E6;">📍</div>
+          <div><div class="jcard-title" data-t="f_gps_h">GPS → Nearest Sacred Site</div><div class="jcard-sub" data-t="f_gps_p">Open the app, allow location — nearest sacred site across all 7 faiths appears instantly. Exact distance, founding story, what to do right now.</div></div>
+        </div>
+        <div class="path">
+          <span class="path-step tab">🏠 Home</span><span class="path-arrow">→</span>
+          <span class="path-step">Allow Location</span><span class="path-arrow">→</span>
+          <span class="path-step">Nearest site card appears at top</span>
+        </div>
+      </div>
+      <div class="jcard" style="--accent:#C85A1A;">
+        <div class="jcard-new">NEW</div>
+        <div class="jcard-top">
+          <div class="jcard-ico" style="background:#FDF0E6;">🌙</div>
+          <div><div class="jcard-title" data-t="f_pan_h">Panchang & Namaz Timing</div><div class="jcard-sub" data-t="f_pan_p">Hindu/Buddhist/Jain: live tithi, nakshatra, auspicious indicator. Islam: calculated Fajr–Isha for 7 Indian cities. Visit at the right time, always.</div></div>
+        </div>
+        <div class="path">
+          <span class="path-step tab">🏠 Home</span><span class="path-arrow">→</span>
+          <span class="path-step">Panchang widget</span><span class="path-arrow">→</span>
+          <span class="path-step wa">💬 Share panchang to WA</span>
+        </div>
+      </div>
+      <div class="jcard" style="--accent:#25D366;">
+        <div class="jcard-wa">WA</div>
+        <div class="jcard-top">
+          <div class="jcard-ico" style="background:#f0fdf4;">💬</div>
+          <div><div class="jcard-title">WhatsApp Quick Actions</div><div class="jcard-sub">Four one-tap WA actions: Daily Panchang, Share trip plan, Book a puja, Request a new site. Every message pre-formatted.</div></div>
+        </div>
+        <div class="path">
+          <span class="path-step tab">🏠 Home</span><span class="path-arrow">→</span>
+          <span class="path-step">WA Quick Actions bar</span><span class="path-arrow">→</span>
+          <span class="path-step wa">Opens WhatsApp</span>
+        </div>
+      </div>
+      <div class="jcard" style="--accent:#C85A1A;">
+        <div class="jcard-top">
+          <div class="jcard-ico" style="background:#FDF0E6;">🪔</div>
+          <div><div class="jcard-title" data-t="f_lm_h">Lamp Dedication</div><div class="jcard-sub" data-t="f_lm_p">Light a diya, candle, chirag, or butter lamp for someone. Private spiritual diary tied to GPS and dates. Users never delete this feature.</div></div>
+        </div>
+        <div class="path">
+          <span class="path-step tab">🏠 Home</span><span class="path-arrow">→</span>
+          <span class="path-step">Light a lamp</span><span class="path-arrow">→</span>
+          <span class="path-step">Dedicate to person</span><span class="path-arrow">→</span>
+          <span class="path-step wa">Share to WA</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPLORE TAB -->
+    <div class="tab-header">
+      <div class="tab-pill">🗺️ Explore Tab</div>
+      <div class="tab-desc">All 85+ sites across 7 faiths. Every detail. Every booking.</div>
+    </div>
+    <div class="journey-grid" style="margin-bottom:40px;">
+      <div class="jcard" style="--accent:#C85A1A;">
+        <div class="jcard-top">
+          <div class="jcard-ico" style="background:#FDF0E6;">🏛️</div>
+          <div><div class="jcard-title">Site Card — Full Detail</div><div class="jcard-sub">Tap any site to expand: founding story, original-language scripture, all bookable experiences, trust-badged prices, WA share.</div></div>
+        </div>
+        <div class="path">
+          <span class="path-step tab">🗺️ Explore</span><span class="path-arrow">→</span>
+          <span class="path-step">Tap any site</span><span class="path-arrow">→</span>
+          <span class="path-step">Expanded card</span>
+        </div>
+      </div>
+      <div class="jcard" style="--accent:#C85A1A;">
+        <div class="jcard-new">NEW</div>
+        <div class="jcard-top">
+          <div class="jcard-ico" style="background:#FDF0E6;">🚂</div>
+          <div><div class="jcard-title" data-t="f_tr_h">Transport to Every Site</div><div class="jcard-sub" data-t="f_tr_p">Nearest railway station, popular train numbers, bus operators, helicopter booking price and URL, dharmshala options with pricing. Direct IRCTC link.</div></div>
+        </div>
+        <div class="path">
+          <span class="path-step tab">🗺️ Explore</span><span class="path-arrow">→</span>
+          <span class="path-step">Tap site</span><span class="path-arrow">→</span>
+          <span class="path-step">🚂 Transport ▼</span><span class="path-arrow">→</span>
+          <span class="path-step">Tap train/heli/bus</span>
+        </div>
+      </div>
+      <div class="jcard" style="--accent:#DC2626;">
+        <div class="jcard-new" style="background:#DC2626;">NEW</div>
+        <div class="jcard-top">
+          <div class="jcard-ico" style="background:#fff5f5;">🟢</div>
+          <div><div class="jcard-title" data-t="f_cr_h">Crowd Intelligence</div><div class="jcard-sub" data-t="f_cr_p">Best days, worst days, peak festival warnings per site. Green/yellow/red indicator based on day-of-week patterns and live calendar.</div></div>
+        </div>
+        <div class="path">
+          <span class="path-step tab">🗺️ Explore</span><span class="path-arrow">→</span>
+          <span class="path-step">Tap site</span><span class="path-arrow">→</span>
+          <span class="path-step">🟢 Crowd indicator</span>
+        </div>
+      </div>
+      <div class="jcard" style="--accent:#C85A1A;">
+        <div class="jcard-new">NEW</div>
+        <div class="jcard-top">
+          <div class="jcard-ico" style="background:#FDF0E6;">♿</div>
+          <div><div class="jcard-title" data-t="f_sr_h">Senior & Accessibility Mode</div><div class="jcard-sub" data-t="f_sr_p">Toggle to see: wheelchair info, step counts, doli (sedan chair) availability, priority queues, shaded seating. Covered for all major sites.</div></div>
+        </div>
+        <div class="path">
+          <span class="path-step tab">🗺️ Explore</span><span class="path-arrow">→</span>
+          <span class="path-step">Senior Mode ♿ toggle</span><span class="path-arrow">→</span>
+          <span class="path-step">All site cards update</span>
+        </div>
+      </div>
+      <div class="jcard" style="--accent:#7B3FA0;">
+        <div class="jcard-top">
+          <div class="jcard-ico" style="background:#F3EBF8;">🎫</div>
+          <div><div class="jcard-title">Book a Darshan or Puja</div><div class="jcard-sub">Tap "Book Now" on any experience. 4-step booking flow. UPI deeplinks (PhonePe, GPay, Paytm, BHIM). Full confirmation to WhatsApp.</div></div>
+        </div>
+        <div class="path">
+          <span class="path-step tab">🗺️ Explore</span><span class="path-arrow">→</span>
+          <span class="path-step">Tap site</span><span class="path-arrow">→</span>
+          <span class="path-step">Book Now →</span><span class="path-arrow">→</span>
+          <span class="path-step wa">WA confirmation</span>
+        </div>
+      </div>
+      <div class="jcard" style="--accent:#0E6655;">
+        <div class="jcard-new" style="background:#0E6655;">NEW</div>
+        <div class="jcard-top">
+          <div class="jcard-ico" style="background:#E8F8F5;">➕</div>
+          <div><div class="jcard-title">Request a Site</div><div class="jcard-sub">Vote for existing requests. Submit new sites with full details. 500 votes → we add it. Structured WhatsApp message sent to the Sacred India team.</div></div>
+        </div>
+        <div class="path">
+          <span class="path-step tab">🗺️ Explore</span><span class="path-arrow">→</span>
+          <span class="path-step">Scroll to bottom</span><span class="path-arrow">→</span>
+          <span class="path-step new">Can't find your site? →</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI GUIDE TAB -->
+    <div class="tab-header">
+      <div class="tab-pill">🤖 AI Guide Tab</div>
+      <div class="tab-desc">Ask anything. Hear it in 5 languages. Share it to WhatsApp.</div>
+    </div>
+    <div class="journey-grid" style="margin-bottom:40px;">
+      <div class="jcard" style="--accent:#2471A3;">
+        <div class="jcard-top">
+          <div class="jcard-ico" style="background:#EBF5FB;">🤖</div>
+          <div><div class="jcard-title" data-t="f_ai_h">AI Sacred Guide</div><div class="jcard-sub" data-t="f_ai_p">Ask anything about history, ritual, scripture, timing. Responds from original sources with citations. Claude-powered. Works for all 7 faiths.</div></div>
+        </div>
+        <div class="path">
+          <span class="path-step tab">🤖 AI Guide</span><span class="path-arrow">→</span>
+          <span class="path-step">Type your question</span><span class="path-arrow">→</span>
+          <span class="path-step">AI responds with sources</span>
+        </div>
+      </div>
+      <div class="jcard" style="--accent:#2471A3;">
+        <div class="jcard-new">NEW</div>
+        <div class="jcard-top">
+          <div class="jcard-ico" style="background:#EBF5FB;">🎤</div>
+          <div><div class="jcard-title">Voice Input — 5 Languages</div><div class="jcard-sub">Speak your question in Hindi, English, Tamil, Telugu, or Bengali. Language toggle bar above the input. Web Speech API. No typing required.</div></div>
+        </div>
+        <div class="path">
+          <span class="path-step tab">🤖 AI Guide</span><span class="path-arrow">→</span>
+          <span class="path-step">Select language</span><span class="path-arrow">→</span>
+          <span class="path-step">🎤 Tap mic</span><span class="path-arrow">→</span>
+          <span class="path-step">Speak question</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICES TAB -->
+    <div class="tab-header">
+      <div class="tab-pill">🛍️ Services Tab</div>
+      <div class="tab-desc">Remote Puja, Prasad delivery, Verified guides. The monetisation centre.</div>
+    </div>
+    <div class="journey-grid" style="margin-bottom:40px;">
+      <div class="jcard" style="--accent:#25D366;">
+        <div class="jcard-wa">WA</div>
+        <div class="jcard-top">
+          <div class="jcard-ico" style="background:#f0fdf4;">🙏</div>
+          <div><div class="jcard-title" data-t="f_rp_h">Remote Puja Service</div><div class="jcard-sub" data-t="f_rp_p">Can't travel? Verified pandit performs the seva. Video delivered on WhatsApp within 2 hours. 80G receipt. 5 temples, 11 seva options, 4 faiths.</div></div>
+        </div>
+        <div class="path">
+          <span class="path-step tab">🛍️ Services</span><span class="path-arrow">→</span>
+          <span class="path-step">🙏 Remote Puja tab</span><span class="path-arrow">→</span>
+          <span class="path-step">Choose temple + seva</span><span class="path-arrow">→</span>
+          <span class="path-step wa">Book via WA</span>
+        </div>
+      </div>
+      <div class="jcard" style="--accent:#25D366;">
+        <div class="jcard-wa">WA</div>
+        <div class="jcard-top">
+          <div class="jcard-ico" style="background:#f0fdf4;">🌸</div>
+          <div><div class="jcard-title">Prasad Delivery</div><div class="jcard-sub">Authentic temple prasad from Tirupati, Kashi Vishwanath, Ajmer Dargah, Golden Temple. Shipped anywhere in India. Order and track via WhatsApp.</div></div>
+        </div>
+        <div class="path">
+          <span class="path-step tab">🛍️ Services</span><span class="path-arrow">→</span>
+          <span class="path-step">🌸 Prasad Delivery tab</span><span class="path-arrow">→</span>
+          <span class="path-step wa">Order via WA</span>
+        </div>
+      </div>
+      <div class="jcard" style="--accent:#25D366;">
+        <div class="jcard-top">
+          <div class="jcard-ico" style="background:#f0fdf4;">🧑‍⚖️</div>
+          <div><div class="jcard-title">Verified Guides & Pandits</div><div class="jcard-sub">Browse pandits, khadims, and pilgrim guides. Reviews, fixed rates, verified badge. Contact directly on WhatsApp — no middleman.</div></div>
+        </div>
+        <div class="path">
+          <span class="path-step tab">🛍️ Services</span><span class="path-arrow">→</span>
+          <span class="path-step">🏪 Vendors tab</span><span class="path-arrow">→</span>
+          <span class="path-step">Guide card</span><span class="path-arrow">→</span>
+          <span class="path-step wa">💬 WhatsApp to book</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEXTS TAB -->
+    <div class="tab-header">
+      <div class="tab-pill">📜 Texts Tab</div>
+      <div class="tab-desc">7 scripts. Every sacred text. Original language. Audio. WhatsApp share.</div>
+    </div>
+    <div class="journey-grid" style="margin-bottom:40px;">
+      <div class="jcard" style="--accent:#7B3FA0;">
+        <div class="jcard-top">
+          <div class="jcard-ico" style="background:#F3EBF8;">📜</div>
+          <div><div class="jcard-title" data-t="f_scr_h">Scripture in the Original Language</div><div class="jcard-sub" data-t="f_scr_p">Sanskrit in Devanagari. Quran in Naskh Arabic. Pali as the Buddha taught it. Gurmukhi from the Guru Granth Sahib. Avestan. Tap Listen. Share to WhatsApp.</div></div>
+        </div>
+        <div class="path">
+          <span class="path-step tab">📜 Texts</span><span class="path-arrow">→</span>
+          <span class="path-step">Select faith</span><span class="path-arrow">→</span>
+          <span class="path-step">Tap scripture</span><span class="path-arrow">→</span>
+          <span class="path-step">🔊 Listen / <span class="path-step wa" style="border:none;padding:0;background:none;">💬 WA share</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- REMAINING TABS -->
+    <div class="tab-header">
+      <div class="tab-pill">🏅 Badges · 👨‍👩‍👧 Family · 👤 Me · 🗓️ Festivals · 💬 Community · 📖 Stories</div>
+    </div>
+    <div class="journey-grid">
+      <div class="jcard" style="--accent:#7B3FA0;">
+        <div class="jcard-top">
+          <div class="jcard-ico" style="background:#F3EBF8;">🏅</div>
+          <div><div class="jcard-title" data-t="f_bg_h">Pilgrimage Badges & Progression</div><div class="jcard-sub" data-t="f_bg_p">5 tiers from Seeker to Legend. 7 faith tracks. Every visit, puja booked, and lamp lit earns progress. Share badge to WhatsApp/Instagram.</div></div>
+        </div>
+        <div class="path">
+          <span class="path-step tab">🏅 Badges</span><span class="path-arrow">→</span>
+          <span class="path-step">Your tier + progress</span><span class="path-arrow">→</span>
+          <span class="path-step wa">Share milestone</span>
+        </div>
+      </div>
+      <div class="jcard" style="--accent:#9A6B10;">
+        <div class="jcard-top">
+          <div class="jcard-ico" style="background:#FEF9E7;">👨‍👩‍👧</div>
+          <div><div class="jcard-title">Family Trip Planner</div><div class="jcard-sub">Set group size (2–15+), type (mixed/seniors/kids), and get accessibility filters applied across all site cards. Share the full itinerary to your family WhatsApp group.</div></div>
+        </div>
+        <div class="path">
+          <span class="path-step tab">👨‍👩‍👧 Family</span><span class="path-arrow">→</span>
+          <span class="path-step">Set group type</span><span class="path-arrow">→</span>
+          <span class="path-step wa">Share plan to WA group</span>
+        </div>
+      </div>
+      <div class="jcard" style="--accent:#25D366;">
+        <div class="jcard-wa">WA</div>
+        <div class="jcard-top">
+          <div class="jcard-ico" style="background:#f0fdf4;">👤</div>
+          <div><div class="jcard-title">Daily Panchang Digest (Me tab)</div><div class="jcard-sub">Enable WhatsApp notifications in Profile. Subscribe to morning panchang. Send today's panchang to any number. Language preference selector for 8 languages.</div></div>
+        </div>
+        <div class="path">
+          <span class="path-step tab">👤 Me</span><span class="path-arrow">→</span>
+          <span class="path-step">Enable WA alerts</span><span class="path-arrow">→</span>
+          <span class="path-step wa">Send today's panchang</span>
+        </div>
+      </div>
+      <div class="jcard" style="--accent:#C85A1A;">
+        <div class="jcard-top">
+          <div class="jcard-ico" style="background:#FDF0E6;">🗓️</div>
+          <div><div class="jcard-title">Festival Calendar</div><div class="jcard-sub">All major festivals across 7 faiths. Ekadashi, Diwali, Eid, Christmas, Vesak, Paryushana, Navroz. Dates for this year, best sites to visit.</div></div>
+        </div>
+        <div class="path">
+          <span class="path-step tab">🗓️ Festivals</span><span class="path-arrow">→</span>
+          <span class="path-step">Browse by faith</span><span class="path-arrow">→</span>
+          <span class="path-step">Festival detail + site suggestion</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── REMOTE PUJA ─────────────────────────────── -->
+<section id="remote-puja" class="dark">
+  <div style="max-width:1100px;margin:0 auto;">
+    <span class="ey" data-t="rp_eyebrow">Services Tab → Remote Puja — the NRI product</span>
+    <h2 class="sec-title" data-t="rp_title">Can't travel? Your puja still happens.</h2>
+    <p class="sec-sub" data-t="rp_sub">A verified pandit or priest performs the seva at the temple. You receive a WhatsApp video within 2 hours. 80G receipt for tax. Available at 5 sacred sites across 4 faiths.</p>
+    <div class="puja-grid">
+      <div class="puja-c">
+        <div class="temple">🛕 Kashi Vishwanath · Varanasi · UP</div>
+        <h4>Rudrabhishek & Bhasma Aarti</h4>
+        <div class="seva-row"><span class="nm">Rudrabhishek — full abhishek in your name</span><span class="pr">₹2,100</span></div>
+        <div class="seva-row"><span class="nm">Bhasma Aarti dedication — your name at 3AM aarti</span><span class="pr">₹1,100</span></div>
+        <div class="seva-row"><span class="nm">Satyanarayan Katha — 2-hour family katha</span><span class="pr">₹5,100</span></div>
+        <div class="seva-incl">✅ WhatsApp video · 15-min ceremony · 80G receipt</div>
+      </div>
+      <div class="puja-c">
+        <div class="temple">⚡ Tirumala Tirupati · Andhra Pradesh</div>
+        <h4>TTD-Authorised Abhishekam</h4>
+        <div class="seva-row"><span class="nm">Abhishekam — TTD-authorised, name offered</span><span class="pr">₹3,000</span></div>
+        <div class="seva-row"><span class="nm">Kalyanostavam — divine wedding ceremony</span><span class="pr">₹7,500</span></div>
+        <div class="seva-incl">✅ WhatsApp photos · Prasad included · Receipt</div>
+      </div>
+      <div class="puja-c">
+        <div class="temple">🌹 Ajmer Dargah Sharif · Rajasthan</div>
+        <h4>Chadar Offering & Qawwali</h4>
+        <div class="seva-row"><span class="nm">Chadar at inner mazaar — dua in your name</span><span class="pr">₹1,500</span></div>
+        <div class="seva-row"><span class="nm">Chadar + Thursday Qawwali evening</span><span class="pr">₹3,000</span></div>
+        <div class="seva-incl">✅ Photo from inside sanctum on WhatsApp</div>
+      </div>
+      <div class="puja-c">
+        <div class="temple">🪯 Harmandir Sahib · Amritsar · Punjab</div>
+        <h4>Ardas & Langar Seva</h4>
+        <div class="seva-row"><span class="nm">Ardas in your family name — morning darbar</span><span class="pr">₹1,100</span></div>
+        <div class="seva-row"><span class="nm">Langar Seva Sponsorship — feeds 50 people</span><span class="pr">₹2,100</span></div>
+        <div class="seva-incl">✅ SGPC acknowledgement + WhatsApp photo</div>
+      </div>
+    </div>
+    <div style="background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.09);border-radius:22px;padding:32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:22px;">
+      <div>
+        <div style="font-size:10px;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:2px;margin-bottom:10px;">4 steps</div>
+        <div class="how-steps">
+          <div class="how-step"><span class="num" style="background:var(--saffron);color:#fff;">1</span> Choose temple + seva. Enter name, WhatsApp, date.</div>
+          <div class="how-step"><span class="num" style="background:var(--saffron);color:#fff;">2</span> Pay via UPI — ₹999 to ₹7,500. No hidden fees.</div>
+          <div class="how-step"><span class="num" style="background:var(--wa);color:#fff;">3</span> Verified pandit performs. Video sent to WhatsApp within 2 hours.</div>
+          <div class="how-step"><span class="num" style="background:var(--gold);color:#fff;">4</span> 80G tax receipt emailed. Sacred India takes 20% commission.</div>
+        </div>
+      </div>
+      <a href="https://wa.me/?text=I%20want%20to%20book%20a%20remote%20puja%20via%20Sacred%20India" target="_blank" class="btn-wa" style="font-size:15px;padding:15px 30px;">💬 Book Remote Puja via WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHATSAPP SECTION ────────────────────────── -->
+<section class="wa-dark">
+  <div style="max-width:1100px;margin:0 auto;">
+    <span class="ey" data-t="wa_eyebrow">WhatsApp is the internet for India</span>
+    <h2 class="sec-title" data-t="wa_title">Sacred India lives in WhatsApp</h2>
+    <p class="sec-sub" data-t="wa_sub">Every major feature has a WhatsApp touchpoint. We built the deepest WA integration of any pilgrimage app — because that is where India trusts, transacts, and prays.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:60px;" class="wa-main">
+      <div class="wa-chat">
+        <div class="wc-hdr"><div class="av">🛕</div><div><div class="nm">Sacred India</div><div class="st">Official · typically replies instantly</div></div></div>
+        <div class="wc-msgs">
+          <div class="wm r"><b>🌙 Today's Panchang</b><br>Tithi: Ekadashi · Shukla Paksha<br>Nakshatra: Pushya ⭐<br><span class="g" style="font-weight:600;">✅ Highly auspicious for Tirupati</span><div class="ts">09:03 <span class="tc">✓✓</span></div></div>
+          <div class="wm s">Book Rudrabhishek at Kashi for 15th<div class="ts">09:15 <span class="tc">✓✓</span></div></div>
+          <div class="wm r"><b>✅ Booking Confirmed</b><br>Kashi Vishwanath · Rudrabhishek<br>📅 15 June · ⏰ 8:00 AM · ₹2,100<br><span style="color:rgba(233,237,239,.5);font-size:10px;">👗 White or yellow clothing preferred</span><div class="ts">09:15 <span class="tc">✓✓</span></div></div>
+          <div class="wm r"><b>🎥 Seva Completed 🙏</b><br>Your Rudrabhishek just concluded.<br><span class="g">Video sent below ↓</span><br><span style="background:rgba(255,255,255,.07);border-radius:6px;padding:5px 8px;font-size:10px;display:inline-block;margin-top:4px;">▶ Rudrabhishek_15june.mp4 · 2:34</span><div class="ts">08:47 <span class="tc">✓✓</span></div></div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,.28);text-transform:uppercase;letter-spacing:2px;margin-bottom:14px;" data-t="wa_count_label">8 WhatsApp integration points</div>
+        <div style="display:flex;flex-direction:column;gap:11px;">
+          <div style="display:flex;gap:10px;align-items:flex-start;"><div style="width:34px;height:34px;border-radius:9px;background:rgba(37,211,102,.12);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">🌙</div><div><div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:1px;" data-t="wa_f1">Daily Panchang & Namaz Times</div><div style="font-size:11px;color:rgba(255,255,255,.35);">Morning digest. Tithi, nakshatra, auspicious indicator, recommended site.</div></div></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;"><div style="width:34px;height:34px;border-radius:9px;background:rgba(37,211,102,.12);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">✅</div><div><div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:1px;" data-t="wa_f2">Booking Confirmations</div><div style="font-size:11px;color:rgba(255,255,255,.35);">Full booking details, dress code, advance tips — one formatted WA message.</div></div></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;"><div style="width:34px;height:34px;border-radius:9px;background:rgba(37,211,102,.12);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">🙏</div><div><div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:1px;" data-t="wa_f3">Remote Puja Video Delivery</div><div style="font-size:11px;color:rgba(255,255,255,.35);">Seva performed. Video of the ceremony on your WhatsApp within 2 hours.</div></div></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;"><div style="width:34px;height:34px;border-radius:9px;background:rgba(37,211,102,.12);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">🌸</div><div><div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:1px;" data-t="wa_f4">Prasad Delivery Orders</div><div style="font-size:11px;color:rgba(255,255,255,.35);">Order authentic prasad. Tracking on WhatsApp. Ships anywhere in India.</div></div></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;"><div style="width:34px;height:34px;border-radius:9px;background:rgba(37,211,102,.12);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">🏅</div><div><div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:1px;" data-t="wa_f5">Badge & Scripture Sharing</div><div style="font-size:11px;color:rgba(255,255,255,.35);">Share badge milestones and scripture verses to your family group in one tap.</div></div></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;"><div style="width:34px;height:34px;border-radius:9px;background:rgba(37,211,102,.12);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">🗺️</div><div><div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:1px;" data-t="wa_f6">Family Trip Planning</div><div style="font-size:11px;color:rgba(255,255,255,.35);">Generate full itinerary for your group. Share to family WhatsApp in one tap.</div></div></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;"><div style="width:34px;height:34px;border-radius:9px;background:rgba(37,211,102,.12);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">➕</div><div><div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:1px;" data-t="wa_f7">Site Requests to Team</div><div style="font-size:11px;color:rgba(255,255,255,.35);">Every site request and vote sends a structured WA message to the Sacred India team.</div></div></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;"><div style="width:34px;height:34px;border-radius:9px;background:rgba(37,211,102,.12);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">🛺</div><div><div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:1px;" data-t="wa_f8">Pandit & Guide Direct Contact</div><div style="font-size:11px;color:rgba(255,255,255,.35);">Every verified guide contactable directly via WhatsApp. No middleman.</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
+      <div class="wa-feat"><div class="wico">🌙</div><h4 data-t="waf1_h">Panchang on WhatsApp</h4><p data-t="waf1_p">Subscribe to daily panchang digest. Tithi, nakshatra, auspicious indicator, today's recommended site.</p><div class="pr" data-t="waf1_pr">Free · Daily delivery</div></div>
+      <div class="wa-feat"><div class="wico">🙏</div><h4 data-t="waf2_h">Remote Puja Booking</h4><p data-t="waf2_p">Book entirely via WhatsApp. Our team handles the pandit, the slot, and the video recording.</p><div class="pr" data-t="waf2_pr">₹999–₹7,500 · 20% commission to Sacred India</div></div>
+      <div class="wa-feat"><div class="wico">🌸</div><h4 data-t="waf3_h">Prasad to Your Door</h4><p data-t="waf3_p">Authentic temple prasad from Tirupati, Kashi, Ajmer Dargah. Shipped anywhere in India.</p><div class="pr" data-t="waf3_pr">₹249–₹399 · 15% commission</div></div>
+      <div class="wa-feat"><div class="wico">📿</div><h4 data-t="waf4_h">Verified Guide Contact</h4><p data-t="waf4_p">Every listed pandit and guide is contactable directly via WhatsApp. Reviewed. Fixed rates.</p><div class="pr" data-t="waf4_pr">₹299–₹999/month listing fee</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 7 FAITHS ────────────────────────────────── -->
+<section class="dark">
+  <div style="text-align:center;">
+    <span class="ey" data-t="faiths_eyebrow">Seven traditions. One app.</span>
+    <h2 class="sec-title" style="max-width:620px;margin:0 auto 44px;color:#fff;" data-t="faiths_title">The only app that honours every faith equally</h2>
+  </div>
+  <div class="faith-grid">
+    <div class="faith-c" style="background:rgba(200,90,26,.08);border-color:rgba(200,90,26,.2);"><span class="em">🛕</span><h4 data-t="faith_hindu">Hindu</h4><div class="nat" style="font-family:'Noto Sans Devanagari',sans-serif;">हिन्दू</div><p>Varanasi · Char Dham · 12 Jyotirlingas · Tirupati · Madurai Meenakshi · Kamakhya · Puri · Vrindavan</p></div>
+    <div class="faith-c" style="background:rgba(27,94,138,.1);border-color:rgba(27,94,138,.2);"><span class="em">🕌</span><h4 data-t="faith_islam">Islam</h4><div class="nat" style="font-family:'Noto Naskh Arabic',serif;direction:rtl;">الإسلام</div><p>Ajmer Dargah · Nizamuddin · Fatehpur Sikri · Haji Ali · Quranic calligraphy in 7 sites</p></div>
+    <div class="faith-c" style="background:rgba(123,63,160,.1);border-color:rgba(123,63,160,.2);"><span class="em">✝️</span><h4 data-t="faith_christian">Christian</h4><div class="nat">Christian</div><p>Velankanni · Old Goa UNESCO · St Thomas Chennai · Kerala apostolic sites · 2,000 years</p></div>
+    <div class="faith-c" style="background:rgba(36,113,163,.1);border-color:rgba(36,113,163,.2);"><span class="em">☸️</span><h4 data-t="faith_buddhist">Buddhist</h4><div class="nat">Buddhist</div><p>Bodh Gaya · Sarnath · Dharamsala · Kushinagar · Pali suttas · Vajrasana meditation</p></div>
+    <div class="faith-c" style="background:rgba(14,102,85,.1);border-color:rgba(14,102,85,.2);"><span class="em">⛩️</span><h4 data-t="faith_jain">Jain</h4><div class="nat" style="font-family:'Noto Sans Devanagari',sans-serif;">जैन</div><p>Palitana (900 temples, 3,800 steps) · Ranakpur (1,444 pillars) · Dilwara · Acaranga Sutra</p></div>
+    <div class="faith-c" style="background:rgba(154,107,16,.1);border-color:rgba(154,107,16,.2);"><span class="em">🪯</span><h4 data-t="faith_sikh">Sikh</h4><div class="nat">ਸਿੱਖ</div><p>Golden Temple (100,000 fed daily) · Anandpur Sahib · Hemkund Sahib (4,329m) · Mool Mantar</p></div>
+    <div class="faith-c" style="background:rgba(232,160,32,.08);border-color:rgba(232,160,32,.2);"><span class="em">🔥</span><h4 data-t="faith_zoroastrian">Zoroastrian</h4><div class="nat">Parsi</div><p>Udvada Atash Behram · Navsari · Mumbai Parsi trail · Avestan prayers · Sacred fire since 721 CE</p></div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ───────────────────────────── -->
+<section style="background:var(--navy2);padding:90px 24px;">
+  <span class="ey" style="color:var(--saffron);" data-t="how_eyebrow">How to use Sacred India</span>
+  <h2 class="sec-title" style="color:#fff;text-align:center;margin-bottom:54px;" data-t="how_title">From download to darshan in six steps</h2>
+  <div class="steps">
+    <div class="step"><div class="sn">🕉️</div><h4 data-t="s1h">Select your faith</h4><p data-t="s1p">Choose your tradition. Every colour, scripture, site, and guide adapts instantly.</p></div>
+    <div class="step"><div class="sn">🌙</div><h4 data-t="s2h">Check the timing</h4><p data-t="s2p">Panchang tells you if today is auspicious. Crowd indicator shows if the site will be busy.</p></div>
+    <div class="step"><div class="sn">📍</div><h4 data-t="s3h">Find your site</h4><p data-t="s3p">GPS shows nearest site. Transport section shows exactly how to get there.</p></div>
+    <div class="step"><div class="sn">📖</div><h4 data-t="s4h">Read the story</h4><p data-t="s4p">Founding myth, original-language scripture, full ritual guide — all at the site.</p></div>
+    <div class="step"><div class="sn">🎫</div><h4 data-t="s5h">Book or order</h4><p data-t="s5p">Darshan, remote puja, prasad, guided walk — UPI payment and WhatsApp confirmation.</p></div>
+    <div class="step"><div class="sn">💬</div><h4 data-t="s6h">Receive on WhatsApp</h4><p data-t="s6p">Booking confirmation, puja video, prasad tracking, panchang digest — all to your WA.</p></div>
+  </div>
+</section>
+
+<!-- ── USER STORIES ───────────────────────────── -->
+<section style="background:var(--off);padding:90px 24px;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <span class="ey" data-t="story_eyebrow">Who uses Sacred India</span>
+    <h2 class="sec-title" data-t="story_title">Four pilgrim types. One app.</h2>
+    <p class="sec-sub" data-t="story_sub">Sacred India works for the 70-year-old from Bihar doing their first Char Dham and the NRI from London who has not been to India in 3 years. The features they use are different. The app is the same.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
+      <div class="pers"><blockquote data-t="q1">"I lit a diya at Varanasi for my late father, shared it with the family WhatsApp group, and received 23 replies within minutes. I cannot delete this app."</blockquote><div class="pinfo"><div class="pav" style="background:#FDF0E6;">🧓</div><div><div class="pnm" data-t="q1nm">Suresh K., 68, Patna</div><div class="pro" data-t="q1ro">Retired · First-time Char Dham pilgrim</div></div></div></div>
+      <div class="pers"><blockquote data-t="q2">"My mother is in Delhi and cannot travel. I booked the Tirupati Abhishekam from London. The WhatsApp video arrived in two hours. She watched it three times and cried."</blockquote><div class="pinfo"><div class="pav" style="background:#EBF5FB;">👩‍💼</div><div><div class="pnm" data-t="q2nm">Priya R., 34, London</div><div class="pro" data-t="q2ro">Software engineer · NRI diaspora</div></div></div></div>
+      <div class="pers"><blockquote data-t="q3">"The Ajmer Dargah section has the actual Sufi qawwali ghazals in Arabic and Farsi with meaning. I found things here I had never seen in any app or book."</blockquote><div class="pinfo"><div class="pav" style="background:#EBF5FB;">🕌</div><div><div class="pnm" data-t="q3nm">Farhan H., 29, Hyderabad</div><div class="pro" data-t="q3ro">Sufi music student · 4 dargah pilgrimages</div></div></div></div>
+      <div class="pers"><blockquote data-t="q4">"The crowd intelligence told me Thursday is best at Bodh Gaya, and I booked the Bodhi Tree meditation offering for sunrise. Completely silent. Two hours of meditation."</blockquote><div class="pinfo"><div class="pav" style="background:#E8F8F5;">☸️</div><div><div class="pnm" data-t="q4nm">Sarah M., 41, Singapore</div><div class="pro" data-t="q4ro">Buddhist practitioner · Annual India retreat</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MARKET ──────────────────────────────────── -->
+<section class="dark">
+  <div style="max-width:1100px;margin:0 auto;text-align:center;">
+    <span class="ey" data-t="mkt_eyebrow">Why this market · Why now</span>
+    <h2 class="sec-title" style="max-width:700px;margin:0 auto 44px;color:#fff;" data-t="mkt_title">The world's largest spiritual market has no dominant app</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;max-width:960px;margin:0 auto 40px;">
+      <div class="mnum"><div class="big">₹10.8B</div><div class="lbl" data-t="m1">Religious tourism market (India, 2024)</div></div>
+      <div class="mnum"><div class="big">900M</div><div class="lbl" data-t="m2">Active pilgrims in India annually</div></div>
+      <div class="mnum"><div class="big">72M</div><div class="lbl" data-t="m3">Varanasi visitors per year. Zero dominant app.</div></div>
+      <div class="mnum"><div class="big">5M+</div><div class="lbl" data-t="m4">NRI diaspora — Remote Puja primary audience</div></div>
+    </div>
+    <div style="background:rgba(200,90,26,.1);border:1.5px solid rgba(200,90,26,.25);border-radius:20px;padding:30px 32px;max-width:780px;margin:0 auto;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(19px,3.2vw,30px);color:var(--gold-l);font-style:italic;margin-bottom:10px;" data-t="mkt_quote">"Sri Mandir covers only Hinduism. No app covers all seven of India's faiths despite India being the only country where all seven exist at world-class scale."</div>
+      <div style="font-size:11.5px;color:rgba(255,255,255,.3);" data-t="mkt_quote_attr">— The gap Sacred India fills</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GUIDE LISTING ───────────────────────────── -->
+<section style="background:var(--off);padding:90px 24px;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <span class="ey" data-t="mono_eyebrow">For pandits, guides & operators</span>
+    <h2 class="sec-title" data-t="mono_title">Get listed. Get bookings. Get paid.</h2>
+    <p class="sec-sub" data-t="mono_sub">Sacred India is building the trust layer India's pilgrimage market has always needed. Verified pandits and guides earn more. Pilgrims pay less than at the gate.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-bottom:36px;">
+      <div class="guide-c"><div class="head"><div class="av">🙏</div><div><div class="nm">Pt. Rameshwar Mishra</div><div class="tp">Pandit · Varanasi</div></div></div><div class="stars">★★★★★ 4.9 (312 reviews)</div><div class="gprice">₹1,100–₹8,000 per puja</div><div style="font-size:11.5px;color:var(--mid);margin-top:7px;line-height:1.6;">30 years at Kashi Vishwanath. Rudrabhishek, Satyanarayan Katha, Bhasma Aarti.</div><div class="verified">✓ Verified Sacred India</div><a href="https://wa.me/919999999999" target="_blank" class="wa-btn-sm">💬 WhatsApp to book</a></div>
+      <div class="guide-c"><div class="head"><div class="av">🌹</div><div><div class="nm">Salman Chishti</div><div class="tp">Khadim · Ajmer Dargah</div></div></div><div class="stars">★★★★★ 4.9 (204 reviews)</div><div class="gprice">₹500–₹3,000 per seva</div><div style="font-size:11.5px;color:var(--mid);margin-top:7px;line-height:1.6;">Hereditary khadim family. 800-year lineage. English, Hindi, Urdu, Arabic.</div><div class="verified">✓ Verified Sacred India</div><a href="https://wa.me/919999999998" target="_blank" class="wa-btn-sm">💬 WhatsApp to book</a></div>
+      <div class="guide-c"><div class="head"><div class="av">🪯</div><div><div class="nm">Gurpreet Singh</div><div class="tp">Pilgrim Guide · Amritsar</div></div></div><div class="stars">★★★★★ 5.0 (156 reviews)</div><div class="gprice">₹700 per 3-hr walk</div><div style="font-size:11.5px;color:var(--mid);margin-top:7px;line-height:1.6;">Baptised Sikh. Explains kirtan and langar seva. Best morning guide.</div><div class="verified">✓ Verified Sacred India</div><a href="https://wa.me/919999999997" target="_blank" class="wa-btn-sm">💬 WhatsApp to book</a></div>
+    </div>
+    <div style="background:linear-gradient(135deg,var(--saff-p),#fff);border:2px solid var(--saff-l);border-radius:20px;padding:28px 30px;max-width:700px;margin:0 auto;text-align:center;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--saffron);margin-bottom:8px;" data-t="list_title">Are you a pandit, khadim, or pilgrim guide?</div>
+      <p style="font-size:13px;color:var(--mid);line-height:1.7;margin-bottom:16px;" data-t="list_p">Get a verified listing on Sacred India for ₹299/month. Featured placement: ₹999/month. Over 100,000 pilgrims use the app.</p>
+      <a href="https://wa.me/?text=I%20want%20to%20get%20listed%20as%20a%20verified%20guide%20on%20Sacred%20India" target="_blank" class="btn-wa" style="display:inline-flex;">💬 Apply via WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── BADGE SIMULATOR ────────────────────────── -->
+<section style="background:linear-gradient(155deg,var(--navy),var(--navy2));padding:90px 24px;" id="sim">
+  <div style="max-width:1100px;margin:0 auto;">
+    <span class="ey" style="color:var(--saffron);" data-t="prog_eyebrow">Pilgrimage Progression System</span>
+    <h2 class="sec-title" style="color:#fff;text-align:center;" data-t="prog_title">Five tiers. Seven faith tracks. One journey.</h2>
+    <p class="sec-sub" style="color:rgba(255,255,255,.38);text-align:center;margin:0 auto 38px;" data-t="prog_sub">Every site visited, puja booked, lamp lit, and scripture heard earns you progress. Build your pilgrim identity across all seven faiths.</p>
+    <div class="tier-row">
+      <div class="tier-c" style="background:rgba(139,92,60,.1);border-color:rgba(139,92,60,.28);"><span class="ti" style="animation-delay:0s;">🌱</span><div class="tn" style="color:#c8a87a;" data-t="t1">Seeker</div><div class="tr" style="color:rgba(200,168,122,.4);" data-t="t1r">First visit or booking</div></div>
+      <div class="tier-c" style="background:rgba(120,120,180,.1);border-color:rgba(120,120,180,.28);"><span class="ti" style="animation-delay:.4s;">🪬</span><div class="tn" style="color:#a0a8e0;" data-t="t2">Pilgrim</div><div class="tr" style="color:rgba(160,168,224,.4);" data-t="t2r">5 sites · 3 faiths</div></div>
+      <div class="tier-c" style="background:rgba(200,90,26,.12);border-color:rgba(200,90,26,.28);"><span class="ti" style="animation-delay:.8s;">🔥</span><div class="tn" style="color:#F5C4A0;" data-t="t3">Devotee</div><div class="tr" style="color:rgba(245,196,160,.4);" data-t="t3r">15 sites · 4 faiths</div></div>
+      <div class="tier-c" style="background:rgba(232,160,32,.12);border-color:rgba(232,160,32,.28);"><span class="ti" style="animation-delay:1.2s;">⭐</span><div class="tn" style="color:#FFD580;" data-t="t4">Sage</div><div class="tr" style="color:rgba(255,213,128,.4);" data-t="t4r">30 sites · All faiths</div></div>
+      <div class="tier-c" style="background:rgba(232,195,80,.15);border-color:rgba(232,195,80,.38);box-shadow:0 0 26px rgba(232,195,80,.1);"><span class="ti" style="animation-delay:1.6s;">👑</span><div class="tn" style="color:#FFD700;text-shadow:0 0 12px rgba(255,215,0,.3);" data-t="t5">Legend</div><div class="tr" style="color:rgba(255,215,0,.4);" data-t="t5r">All sites · All 7 faiths</div></div>
+    </div>
+    <div class="sim-wrap">
+      <div style="font-size:9.5px;font-weight:700;color:rgba(255,255,255,.25);text-transform:uppercase;letter-spacing:2px;text-align:center;margin-bottom:20px;" data-t="sim_label">Try it — build your pilgrim profile</div>
+      <div class="sim-grid" id="sim-grid">
+        <div>
+          <h5 data-t="sim_faith_label">Your faith track</h5>
+          <div class="sim-faith-btns" id="sfb"></div>
+          <h5 data-t="sim_sites_label">Sites · Lamps · Faiths</h5>
+          <div class="sim-sl"><label><span data-t="sim_sites_lbl">Sites visited</span> <span id="sv">0</span></label><input type="range" min="0" max="50" value="0" oninput="document.getElementById('sv').textContent=this.value;simUpdate()"></div>
+          <div class="sim-sl"><label><span data-t="sim_faiths_lbl">Faiths explored</span> <span id="fv">1</span></label><input type="range" min="1" max="7" value="1" oninput="document.getElementById('fv').textContent=this.value;simUpdate()"></div>
+          <div class="sim-sl"><label><span data-t="sim_lamps_lbl">Lamps lit</span> <span id="lv">0</span></label><input type="range" min="0" max="50" value="0" oninput="document.getElementById('lv').textContent=this.value;simUpdate()"></div>
+          <input id="snin" class="sim-name-in" placeholder="Your name (for the badge)" maxlength="32">
+          <div class="sim-share-row">
+            <button class="sim-share-btn" style="background:#25D366;color:#fff;" onclick="simShare('whatsapp')">💬 WhatsApp</button>
+            <button class="sim-share-btn" style="background:#1da1f2;color:#fff;" onclick="simShare('twitter')">𝕏 Share</button>
+            <button class="sim-share-btn" style="background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.14);" onclick="simShare('copy')">📋 <span data-t="sim_copy_btn">Copy</span></button>
+          </div>
+          <div id="sc" class="sim-confirm"></div>
+        </div>
+        <div class="sim-card" id="sim-card">
+          <div class="bgem" id="sbg">🛕</div>
+          <div class="sim-tier-badge" id="stb">Sacred India</div>
+          <div class="sim-name" id="sname">Pilgrim</div>
+          <div class="sim-faith-badge" id="sfbadge"><span id="sficon">🛕</span><span id="sftrack">Hindu Track</span></div>
+          <div class="sim-stats">
+            <div class="sim-stat"><div class="v" id="ssd">0</div><div class="l" data-t="sim_s1">Sites</div></div>
+            <div class="sim-stat"><div class="v" id="sfd">1</div><div class="l" data-t="sim_s2">Faiths</div></div>
+            <div class="sim-stat"><div class="v" id="sld">0</div><div class="l" data-t="sim_s3">Lamps</div></div>
+          </div>
+          <div class="sim-prog-bg"><div class="sim-prog" id="spb" style="width:0%"></div></div>
+          <div class="sim-next" id="snxt"></div>
+          <div class="sim-badges-row" id="sbrow"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WAITLIST CAPTURE ──────────────────────────────── -->
+<section style="background:#fff;padding:70px 24px;" id="waitlist">
+  <div style="max-width:560px;margin:0 auto;text-align:center;">
+    <span style="font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--saffron);display:block;margin-bottom:14px;">Be the first to know</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,44px);color:var(--dark);margin-bottom:10px;font-weight:600;">Sacred India is launching soon</h2>
+    <p style="font-size:14px;color:var(--mid);margin-bottom:28px;line-height:1.75;">Get early access + 20% off your first Remote Puja booking. We'll notify you on WhatsApp when we go live in your city.</p>
+    <div style="background:#F5F1EC;border-radius:18px;padding:24px;text-align:left;">
+      <div id="wl-success" style="display:none;text-align:center;padding:20px;color:var(--saffron);font-weight:700;font-size:15px;">🙏 You're on the list! We'll WhatsApp you at launch.</div>
+      <div id="wl-form">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
+          <div>
+            <label style="font-size:10px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:5px;">Your name</label>
+            <input id="wl-name" placeholder="Priya Rajan" style="width:100%;border:1.5px solid #e5e7eb;border-radius:10px;padding:10px 12px;font-size:13px;font-family:'Outfit',sans-serif;outline:none;box-sizing:border-box;background:#fff;">
+          </div>
+          <div>
+            <label style="font-size:10px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:5px;">WhatsApp number</label>
+            <input id="wl-phone" placeholder="+44 7700 900001" type="tel" style="width:100%;border:1.5px solid #e5e7eb;border-radius:10px;padding:10px 12px;font-size:13px;font-family:'Outfit',sans-serif;outline:none;box-sizing:border-box;background:#fff;">
+          </div>
+        </div>
+        <div style="margin-bottom:10px;">
+          <label style="font-size:10px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:5px;">I am interested in</label>
+          <select id="wl-interest" style="width:100%;border:1.5px solid #e5e7eb;border-radius:10px;padding:10px 12px;font-size:13px;font-family:'Outfit',sans-serif;outline:none;box-sizing:border-box;background:#fff;appearance:none;">
+            <option value="">Select your interest...</option>
+            <option value="remote_puja">Remote Puja — video on WhatsApp</option>
+            <option value="booking">Booking darshan and experiences</option>
+            <option value="prasad">Prasad delivery to my home</option>
+            <option value="guide">Finding a verified pandit or guide</option>
+            <option value="yatri_plus">Yatri Plus subscription</option>
+            <option value="provider">I am a pandit / guide / temple — want to list</option>
+          </select>
+        </div>
+        <button onclick="submitWaitlist()" style="width:100%;background:var(--saffron);color:#fff;border:none;border-radius:12px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:4px;">
+          💬 Notify me on WhatsApp at launch
+        </button>
+        <p style="font-size:10.5px;color:#aaa;margin-top:8px;text-align:center;">No spam. We message you once when Sacred India launches in your city. You can opt out anytime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ──────────────────────────────── -->
+<section class="fcta">
+  <div class="ft">India prays here.<br>Now it navigates here.</div>
+  <p class="fs" data-t="fcta_sub">7 faiths. 12 tabs. Panchang timing. Remote puja on WhatsApp. Transport to every sacred site. The app India's pilgrims have always needed.</p>
+  <div class="cta-row" style="position:relative;">
+    <a href="https://wa.me/?text=I%20want%20to%20try%20Sacred%20India" target="_blank" class="btn-wa">💬 <span data-t="cta_wa_final">Try Sacred India on WhatsApp</span></a>
+    <a href="#journey" class="btn-s" data-t="cta_learn">Explore features</a>
+  </div>
+  <div style="margin-top:42px;position:relative;">
+    <span style="font-size:11.5px;color:rgba(255,255,255,.2);" data-t="cta_trust">No ads · No data sold · Pilgrims first</span>
+  </div>
+</section>
+
+<footer>
+  <strong>Sacred India</strong> · Every faith, honoured equally · 7 religions · 85+ sacred sites · 12 app tabs<br>
+  <a href="https://wa.me/?text=I%20want%20to%20learn%20about%20Sacred%20India" target="_blank" style="color:rgba(37,211,102,.55);">💬 Contact us on WhatsApp</a> ·
+  <a href="#sim" data-t="footer_badges">Badge system</a> ·
+  <a href="#remote-puja" data-t="footer_puja">Remote Puja</a> ·
+  <a href="#journey" data-t="footer_app">App features</a><br>
+  <span style="color:rgba(255,255,255,.1);">© 2025 Sacred India Pvt Ltd · sacredindia.app</span><br>
+  <span style="color:rgba(255,255,255,.12);font-size:10px;">
+    <a href="#" onclick="alert('Privacy Policy: sacredindia.app/privacy')" style="color:rgba(255,255,255,.25);text-decoration:none;">Privacy Policy</a> ·
+    <a href="#" onclick="alert('Cancellation Policy: sacredindia.app/refunds')" style="color:rgba(255,255,255,.25);text-decoration:none;">Refund Policy</a> ·
+    <a href="#" onclick="alert('Provider Agreement: sacredindia.app/provider-terms')" style="color:rgba(255,255,255,.25);text-decoration:none;">Provider Terms</a> ·
+    <a href="mailto:support@sacredindia.app" style="color:rgba(255,255,255,.25);text-decoration:none;">Contact</a>
+    <br>Registered under the Companies Act 2013 · GST registered · PDPB 2023 compliant
+  </span>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════════
+   TRANSLATIONS — complete for all 8 languages
+   Missing keys fall back to English via Object.assign
+═══════════════════════════════════════════════ */
+const T={
+en:{faith_hindu:"Hindu",faith_islam:"Islam",faith_christian:"Christian",faith_buddhist:"Buddhist",faith_jain:"Jain",faith_sikh:"Sikh",faith_zoroastrian:"Zoroastrian",hero_eyebrow:"India's First Multi-Faith Pilgrimage App",hero_wa_tag:"WhatsApp-deep. Every feature. Every faith.",hero_sub:"12 tabs. 85+ sacred sites. 7 faiths. Panchang timing. Transport to every site. Remote puja — video on WhatsApp.",cta_wa:"Book Remote Puja on WhatsApp",cta_app:"Explore the App",stat1:"Faiths",stat2:"App Tabs",stat3:"Sacred Sites",stat4:"Market Size",prob_eyebrow:"The problem we solve",prob_title:"900 million pilgrims. No app built for them.",p1h:"No signal at the site",p1p:"Kedarnath, Hemkund Sahib, remote dargahs — zero connectivity. Most apps die here.",p1s:"✓ Offline packs per site",p2h:"Visiting at the wrong time",p2p:"Maha Shivaratri at Varanasi means 12-hour queues. Nobody warns you.",p2s:"✓ Crowd intelligence + panchang/namaz timing",p3h:"Fake pandits, inflated prices",p3p:"Rs500 puja quoted as Rs5,000 at the gate. No way to know costs before you arrive.",p3s:"✓ Verified guides. Fixed prices. Trust badges.",p4h:"Can't travel — but still want to pray",p4p:"5 million NRIs. Elderly parents. They want their puja to happen even when they can't go.",p4s:"✓ Remote Puja — verified pandit, video on WhatsApp",prob_answer:'"Sacred India is the guide that was always missing — in the language the prayer was written, at the moment of darshan."',journey_eyebrow:"Inside the app — complete drill-down",journey_title:"12 tabs. Every path. Every feature.",journey_sub:"Each card shows the exact navigation path to reach that feature. Tap a tab name, follow the arrows, you're there.",rp_eyebrow:"Services Tab → Remote Puja — the NRI product",rp_title:"Can't travel? Your puja still happens.",rp_sub:"A verified pandit performs the seva at the temple. You receive a WhatsApp video within 2 hours. 80G receipt included.",wa_count_label:"8 WhatsApp integration points",wa_eyebrow:"WhatsApp is the internet for India",wa_title:"Sacred India lives in WhatsApp",wa_sub:"Every major feature has a WhatsApp touchpoint. The deepest WA integration of any pilgrimage app.",wa_f1:"Daily Panchang & Namaz Times",wa_f2:"Booking Confirmations",wa_f3:"Remote Puja Video Delivery",wa_f4:"Prasad Delivery Orders",wa_f5:"Badge & Scripture Sharing",wa_f6:"Family Trip Planning",wa_f7:"Site Requests to Team",wa_f8:"Pandit & Guide Direct Contact",waf1_h:"Panchang on WhatsApp",waf1_p:"Subscribe to daily panchang digest. Tithi, nakshatra, auspicious indicator, today's recommended site.",waf1_pr:"Free · Daily delivery",waf2_h:"Remote Puja Booking",waf2_p:"Book entirely via WhatsApp. Our team handles the pandit, the slot, and the video recording.",waf2_pr:"Rs999 to Rs7,500. 20% commission to Sacred India.",waf3_h:"Prasad to Your Door",waf3_p:"Authentic temple prasad from Tirupati, Kashi, Ajmer Dargah. Shipped anywhere in India.",waf3_pr:"Rs249 to Rs399. 15% commission.",waf4_h:"Verified Guide Contact",waf4_p:"Every listed pandit and guide contactable directly on WhatsApp. Reviewed. Fixed rates.",waf4_pr:"Rs299 to Rs999 per month listing fee.",f_gps_h:"GPS to Nearest Sacred Site",f_gps_p:"Open the app, allow location — nearest sacred site across all 7 faiths appears instantly.",f_pan_h:"Panchang & Namaz Timing",f_pan_p:"Hindu/Buddhist/Jain: live tithi, nakshatra, auspicious indicator. Islam: Fajr to Isha for 7 cities.",f_tr_h:"Transport to Every Site",f_tr_p:"Nearest railway station, popular trains, bus routes, helicopter booking, dharmshala options. Direct IRCTC link.",f_cr_h:"Crowd Intelligence",f_cr_p:"Best days, worst days, peak festival warnings per site. Green/yellow/red indicator.",f_sr_h:"Senior & Accessibility Mode",f_sr_p:"Toggle to see wheelchair info, step counts, doli availability, priority queues, shaded seating.",f_rp_h:"Remote Puja Service",f_rp_p:"Can't travel? Verified pandit performs the seva. Video on WhatsApp within 2 hours. 80G receipt.",f_scr_h:"Scripture in the Original Language",f_scr_p:"Sanskrit in Devanagari. Quran in Arabic. Pali. Gurmukhi. Avestan. Tap Listen. Share to WhatsApp.",f_ai_h:"AI Sacred Guide — Voice Enabled",f_ai_p:"Ask anything about history, ritual, scripture. Voice input in Hindi, English, Tamil, Telugu, Bengali.",f_lm_h:"Lamp Dedication & Intention Thread",f_lm_p:"Light a diya, candle, chirag, or butter lamp for someone. Private spiritual diary tied to GPS and dates.",f_bg_h:"Pilgrimage Badges & Progression",f_bg_p:"5 tiers from Seeker to Legend. 7 faith tracks. Share badge to WhatsApp or Instagram.",faiths_eyebrow:"Seven traditions. One app.",faiths_title:"The only app that honours every faith equally",how_eyebrow:"How to use Sacred India",how_title:"From download to darshan in six steps",s1h:"Select your faith",s1p:"Choose your tradition. Every colour, scripture, site, and guide adapts instantly.",s2h:"Check the timing",s2p:"Panchang tells you if today is auspicious. Crowd indicator shows if the site will be busy.",s3h:"Find your site",s3p:"GPS shows nearest site. Transport section shows exactly how to get there.",s4h:"Read the story",s4p:"Founding myth, original-language scripture, full ritual guide — all at the site.",s5h:"Book or order",s5p:"Darshan, remote puja, prasad, guided walk — UPI payment and WhatsApp confirmation.",s6h:"Receive on WhatsApp",s6p:"Booking confirmation, puja video, prasad tracking, panchang digest — all to your WA.",story_eyebrow:"Who uses Sacred India",story_title:"Four pilgrim types. One app.",story_sub:"Sacred India works for the 70-year-old from Bihar doing their first Char Dham and the NRI from London who has not been to India in 3 years.",q1:'"I lit a diya at Varanasi for my late father, shared it with the family WhatsApp group, and received 23 replies within minutes. I cannot delete this app."',q1nm:"Suresh K., 68, Patna",q1ro:"Retired · First-time Char Dham pilgrim",q2:'"My mother is in Delhi and cannot travel. I booked the Tirupati Abhishekam from London. The WhatsApp video arrived in two hours. She watched it three times and cried."',q2nm:"Priya R., 34, London",q2ro:"Software engineer · NRI diaspora",q3:'"The Ajmer Dargah section has the actual Sufi qawwali ghazals in Arabic and Farsi with meaning. I found things here I had never seen in any app or book."',q3nm:"Farhan H., 29, Hyderabad",q3ro:"Sufi music student · 4 dargah pilgrimages",q4:'"The crowd intelligence told me Thursday is best at Bodh Gaya, and I booked the Bodhi Tree meditation offering for sunrise. Completely silent. Two hours of meditation."',q4nm:"Sarah M., 41, Singapore",q4ro:"Buddhist practitioner · Annual India retreat",mkt_eyebrow:"Why this market · Why now",mkt_title:"The world's largest spiritual market has no dominant app",m1:"Religious tourism market (India, 2024)",m2:"Active pilgrims in India annually",m3:"Varanasi visitors per year. Zero dominant app.",m4:"NRI diaspora — Remote Puja primary audience",mkt_quote:'"Sri Mandir covers only Hinduism. No app covers all seven of India\'s faiths despite India being the only country where all seven exist at world-class scale."',mkt_quote_attr:"— The gap Sacred India fills",mono_eyebrow:"For pandits, guides & operators",mono_title:"Get listed. Get bookings. Get paid.",mono_sub:"Sacred India is building the trust layer India's pilgrimage market has always needed. Verified pandits earn more. Pilgrims pay less.",list_title:"Are you a pandit, khadim, or pilgrim guide?",list_p:"Get a verified listing on Sacred India for Rs299/month. Featured placement: Rs999/month. Over 100,000 pilgrims will find you.",prog_eyebrow:"Pilgrimage Progression System",prog_title:"Five tiers. Seven faith tracks. One journey.",prog_sub:"Every site visited, puja booked, lamp lit, and scripture heard earns you progress.",t1:"Seeker",t1r:"First visit or booking",t2:"Pilgrim",t2r:"5 sites · 3 faiths",t3:"Devotee",t3r:"15 sites · 4 faiths",t4:"Sage",t4r:"30 sites · All faiths",t5:"Legend",t5r:"All sites · All 7 faiths",sim_label:"Try it — build your pilgrim profile",sim_faith_label:"Your faith track",sim_sites_label:"Sites · Lamps · Faiths",sim_sites_lbl:"Sites visited",sim_faiths_lbl:"Faiths explored",sim_lamps_lbl:"Lamps lit",sim_copy_btn:"Copy",sim_s1:"Sites",sim_s2:"Faiths",sim_s3:"Lamps",fcta_title:"India prays here.\nNow it navigates here.",fcta_sub:"7 faiths. 12 tabs. Panchang timing. Remote puja on WhatsApp. Transport to every sacred site.",cta_wa_final:"Try Sacred India on WhatsApp",cta_learn:"Explore features",cta_trust:"No ads · No data sold · Pilgrims first",footer_badges:"Badge system",footer_puja:"Remote Puja",footer_app:"App features"},
+hi:{faith_hindu:"हिन्दू",faith_islam:"इस्लाम",faith_christian:"ईसाई",faith_buddhist:"बौद्ध",faith_jain:"जैन",faith_sikh:"सिख",faith_zoroastrian:"पारसी",hero_eyebrow:"भारत का पहला बहु-धर्म तीर्थयात्रा ऐप",hero_wa_tag:"WhatsApp पर हर फीचर। हर धर्म।",hero_sub:"12 टैब्स। 85+ पवित्र स्थल। 7 धर्म। पंचांग। हर स्थल तक पहुंच। रिमोट पूजा — WhatsApp पर वीडियो।",cta_wa:"WhatsApp पर रिमोट पूजा बुक करें",cta_app:"ऐप देखें",stat1:"धर्म",stat2:"ऐप टैब्स",stat3:"पवित्र स्थल",stat4:"मार्केट साइज़",prob_eyebrow:"जो समस्या हम सुलझाते हैं",prob_title:"90 करोड़ तीर्थयात्री। कोई ऐप नहीं उनके लिए।",p1h:"पवित्र स्थल पर नेटवर्क नहीं",p1p:"केदारनाथ — शून्य कनेक्टिविटी। ज़्यादातर ऐप यहाँ बंद हो जाते हैं।",p1s:"✓ ऑफलाइन साइट पैक्स",p2h:"गलत समय पर जाना",p2p:"महाशिवरात्रि पर काशी में 12 घंटे की कतार। कोई नहीं बताता।",p2s:"✓ भीड़ की जानकारी + पंचांग/नमाज़ समय",p3h:"नकली पंडित और बढ़ी कीमतें",p3p:"₹500 की पूजा गेट पर ₹5,000 में।",p3s:"✓ वेरिफाइड गाइड। फिक्स्ड प्राइस।",p4h:"जा नहीं सकते — पर पूजा चाहते हैं",p4p:"50 लाख NRI। बुज़ुर्ग माता-पिता। वे पूजा चाहते हैं।",p4s:"✓ रिमोट पूजा — WhatsApp पर वीडियो",prob_answer:'"Sacred India वह गाइड है जो हमेशा से गायब था — उस भाषा में, जिसमें प्रार्थना लिखी गई थी।"',journey_eyebrow:"ऐप के अंदर — हर फीचर का रास्ता",journey_title:"12 टैब्स। हर रास्ता। हर फीचर।",journey_sub:"हर कार्ड नीचे उस फीचर तक पहुंचने का सटीक रास्ता दिखाता है।",rp_eyebrow:"Services टैब → Remote Pूजा — NRI उत्पाद",rp_title:"जा नहीं सकते? आपकी पूजा फिर भी होगी।",rp_sub:"वेरिफाइड पंडित मंदिर में पूजा करेंगे। 2 घंटे में WhatsApp पर वीडियो। 80G रसीद शामिल।",wa_count_label:"8 WhatsApp एकीकरण बिंदु",wa_eyebrow:"WhatsApp भारत का इंटरनेट है",wa_title:"Sacred India WhatsApp में रहता है",wa_sub:"हर प्रमुख फीचर का एक WhatsApp टचपॉइंट है।",wa_f1:"दैनंदिन पंचांग और नमाज़ समय",wa_f2:"बुकिंग पुष्टी",wa_f3:"रिमोट पूजा वीडियो डिलीवरी",wa_f4:"प्रसाद डिलीवरी ऑर्डर",wa_f5:"बैज और ग्रंथ शेयरिंग",wa_f6:"परिवार यात्रा योजना",wa_f7:"टीम को साइट रिक्वेस्ट",wa_f8:"पंडित और गाइड से सीधा संपर्क",waf1_h:"WhatsApp पर पंचांग",waf1_p:"दैनंदिन पंचांग डाइजेस्ट — तिथि, नक्षत्र, शुभ संकेत।",waf1_pr:"मुफ्त · दैनंदिन डिलीवरी",waf2_h:"रिमोट पूजा बुकिंग",waf2_p:"WhatsApp के ज़रिए पूरी बुकिंग।",waf2_pr:"₹999 से ₹7,500 · 20% कमीशन",waf3_h:"प्रसाद आपके दरवाज़े पर",waf3_p:"तिरुपति, काशी, अजमेर दरगाह का असली प्रसाद।",waf3_pr:"₹249 से ₹399 · 15% कमीशन",waf4_h:"वेरिफाइड गाइड संपर्क",waf4_p:"हर वेरिफाइड गाइड WhatsApp पर सीधे संपर्क।",waf4_pr:"₹299 से ₹999/माह",f_gps_h:"GPS → नज़दीकी पवित्र स्थल",f_pan_h:"पंचांग और नमाज़ समय",f_tr_h:"हर स्थल तक पहुंच",f_cr_h:"भीड़ की जानकारी",f_sr_h:"वरिष्ठ और सुलभता मोड",f_rp_h:"रिमोट पूजा सेवा",f_scr_h:"मूल भाषा में ग्रंथ",f_ai_h:"AI पवित्र गाइड — वॉयस",f_lm_h:"दीप समर्पण",f_bg_h:"तीर्थयात्रा बैज और प्रगति",faiths_eyebrow:"सात परंपराएं। एक ऐप।",faiths_title:"एकमात्र ऐप जो हर धर्म का समान सम्मान करता है",how_eyebrow:"Sacred India कैसे इस्तेमाल करें",how_title:"डाउनलोड से दर्शन तक छह चरणों में",s1h:"अपना धर्म चुनें",s1p:"अपनी परंपरा चुनें। पूरा ऐप तुरंत अनुकूलित हो जाता है।",s2h:"समय जांचें",s2p:"पंचांग बताता है कि आज शुभ है या नहीं।",s3h:"स्थल खोजें",s3p:"GPS नज़दीकी पवित्र स्थल खोजता है।",s4h:"कहानी पढ़ें",s4p:"स्थापना की कथा, मूल-भाषा ग्रंथ, अनुष्ठान गाइड।",s5h:"बुक करें या ऑर्डर करें",s5p:"दर्शन, रिमोट पूजा, प्रसाद — UPI और WhatsApp से।",s6h:"WhatsApp पर पाएं",s6p:"बुकिंग पुष्टी, पूजा वीडियो — आपके WA पर।",story_eyebrow:"Sacred India कौन इस्तेमाल करता है",story_title:"चार तरह के तीर्थयात्री। एक ऐप।",story_sub:"Sacred India बिहार के 70 वर्षीय और लंदन के NRI — दोनों के लिए काम करता है।",q1:'"मैंने वाराणसी में पिताजी के लिए दिया जलाया, WhatsApp ग्रुप में शेयर किया, कुछ मिनटों में 23 जवाब आए। यह ऐप नहीं हटा सकता।"',q1nm:"सुरेश के., 68, पटना",q1ro:"सेवानिवृत्त · पहली बार चार धाम यात्री",q2:'"माँ दिल्ली में हैं, यात्रा नहीं कर सकतीं। मैंने लंदन से तिरुपति अभिषेकम बुक किया। दो घंटे में WhatsApp वीडियो आया।"',q2nm:"प्रिया आर., 34, लंदन",q2ro:"सॉफ्टवेयर इंजीनियर · NRI",q3:'"अजमेर दरगाह सेक्शन में असली सूफी ग़ज़लें हैं। मुझे यहाँ ऐसी चीज़ें मिलीं जो किसी ऐप में नहीं थीं।"',q3nm:"फरहान एच., 29, हैदराबाद",q3ro:"सूफी संगीत छात्र",q4:'"भीड़ जानकारी ने बताया बोधगया में गुरुवार सबसे अच्छा है। सूर्योदय पर ध्यान ऑफरिंग बुक की। पूरी तरह शांत।"',q4nm:"सारा एम., 41, सिंगापुर",q4ro:"बौद्ध अभ्यासी",mkt_eyebrow:"यह बाज़ार क्यों · अभी क्यों",mkt_title:"दुनिया के सबसे बड़े आध्यात्मिक बाज़ार में कोई प्रमुख ऐप नहीं",m1:"धार्मिक पर्यटन बाज़ार (भारत, 2024)",m2:"भारत में सालाना सक्रिय तीर्थयात्री",m3:"वाराणसी आगंतुक प्रतिवर्ष। कोई प्रमुख ऐप नहीं।",m4:"NRI डायस्पोरा — रिमोट पूजा का प्राथमिक दर्शक",mkt_quote:'"Sri Mandir केवल हिंदू धर्म को कवर करता है। भारत एकमात्र देश है जहाँ सभी सात धर्म विश्व-स्तर पर मौजूद हैं।"',mkt_quote_attr:"— वह अंतर जो Sacred India भरता है",mono_eyebrow:"पंडितों, गाइडों और ऑपरेटरों के लिए",mono_title:"लिस्ट हों। बुकिंग पाएं। कमाई करें।",mono_sub:"Sacred India वह विश्वास परत बना रहा है जिसकी ज़रूरत थी।",list_title:"क्या आप पंडित, खादिम, या तीर्थयात्रा गाइड हैं?",list_p:"Sacred India पर ₹299/माह में वेरिफाइड लिस्टिंग। 1 लाख+ तीर्थयात्री आपको खोजेंगे।",prog_eyebrow:"तीर्थयात्रा प्रगति प्रणाली",prog_title:"पांच स्तर। सात धर्म ट्रैक। एक यात्रा।",prog_sub:"हर साइट विज़िट, पूजा बुकिंग, दीप और ग्रंथ आपको प्रगति दिलाता है।",t1:"खोजी",t1r:"पहली यात्रा या बुकिंग",t2:"तीर्थयात्री",t2r:"5 स्थल · 3 धर्म",t3:"भक्त",t3r:"15 स्थल · 4 धर्म",t4:"ऋषि",t4r:"30 स्थल · सभी धर्म",t5:"किंवदंती",t5r:"सभी स्थल · सभी 7 धर्म",sim_label:"आज़माएं — अपनी तीर्थ प्रोफाइल बनाएं",sim_faith_label:"आपका धर्म",sim_sites_label:"स्थल · दीपक · धर्म",sim_sites_lbl:"स्थल",sim_faiths_lbl:"धर्म",sim_lamps_lbl:"दीपक",sim_copy_btn:"कॉपी करें",sim_s1:"स्थल",sim_s2:"धर्म",sim_s3:"दीपक",fcta_title:"भारत यहाँ प्रार्थना करता है।\nअब यहाँ नेविगेट करता है।",fcta_sub:"7 धर्म। 12 टैब्स। पंचांग। रिमोट पूजा। हर पवित्र स्थल तक पहुंच।",cta_wa_final:"WhatsApp पर Sacred India आज़माएं",cta_learn:"फीचर्स देखें",cta_trust:"कोई विज्ञापन नहीं · डेटा नहीं बेचते · तीर्थयात्री पहले",footer_badges:"बैज सिस्टम",footer_puja:"रिमोट पूजा",footer_app:"ऐप फीचर्स"},
+mr:{faith_hindu:"हिंदू",faith_islam:"इस्लाम",faith_christian:"ख्रिस्ती",faith_buddhist:"बौद्ध",faith_jain:"जैन",faith_sikh:"शीख",faith_zoroastrian:"पारसी",hero_eyebrow:"भारतातील पहिले बहु-धर्म तीर्थयात्रा अॅप",hero_wa_tag:"WhatsApp वर प्रत्येक वैशिष्ट्य. प्रत्येक धर्म.",hero_sub:"12 टॅब्स. 85+ पवित्र स्थळे. 7 धर्म. पंचांग. प्रत्येक स्थळापर्यंत पोहोच. रिमोट पूजा — WhatsApp वर व्हिडिओ.",cta_wa:"WhatsApp वर रिमोट पूजा बुक करा",cta_app:"अॅप पहा",stat1:"धर्म",stat2:"अॅप टॅब्स",stat3:"पवित्र स्थळे",stat4:"बाजारपेठ आकार",prob_eyebrow:"आम्ही कोणती समस्या सोडवतो",prob_title:"90 कोटी तीर्थयात्री. त्यांच्यासाठी कोणताही अॅप नाही.",p1h:"पवित्र स्थळावर नेटवर्क नाही",p1p:"केदारनाथ — शून्य कनेक्टिव्हिटी. बहुतेक अॅप इथे बंद पडतात.",p1s:"✓ ऑफलाइन साइट पॅक्स",p2h:"चुकीच्या वेळी भेट देणे",p2p:"काशीत महाशिवरात्रीला 12 तासांची रांग. कोणी सांगत नाही.",p2s:"✓ गर्दी माहिती + पंचांग/नमाज वेळ",p3h:"बनावट पुजारी आणि वाढवलेल्या किमती",p3p:"₹500 ची पूजा गेटवर ₹5,000 मध्ये.",p3s:"✓ पडताळलेले गाइड. निश्चित किंमती.",p4h:"जाता येत नाही — पण पूजा हवी आहे",p4p:"50 लाख NRI. वृद्ध पालक. ते पूजा व्हावी असे इच्छितात.",p4s:"✓ रिमोट पूजा — WhatsApp वर व्हिडिओ",prob_answer:'"Sacred India हे ते मार्गदर्शन आहे जे नेहमीच गायब होते — ज्या भाषेत प्रार्थना लिहिली गेली, त्याच भाषेत."',journey_eyebrow:"अॅपच्या आत — प्रत्येक मार्ग",journey_title:"12 टॅब्स. प्रत्येक मार्ग. प्रत्येक वैशिष्ट्य.",journey_sub:"प्रत्येक कार्डवर त्या वैशिष्ट्यापर्यंत पोहोचण्याचा अचूक मार्ग दाखवला आहे.",rp_eyebrow:"Services टॅब → Remote Pूजा — NRI उत्पादन",rp_title:"जाता येत नाही? तरीही तुमची पूजा होईल.",rp_sub:"पडताळलेला पुजारी मंदिरात सेवा करतो. 2 तासांत WhatsApp वर व्हिडिओ. 80G पावती समाविष्ट.",wa_count_label:"8 WhatsApp एकत्रीकरण बिंदू",wa_eyebrow:"WhatsApp हे भारताचे इंटरनेट आहे",wa_title:"Sacred India WhatsApp मध्ये जगते",wa_sub:"प्रत्येक प्रमुख वैशिष्ट्याचा WhatsApp टचपॉइंट आहे.",wa_f1:"दैनंदिन पंचांग आणि नमाज वेळा",wa_f2:"बुकिंग पुष्टी",wa_f3:"रिमोट पूजा व्हिडिओ डिलिव्हरी",wa_f4:"प्रसाद डिलिव्हरी ऑर्डर",wa_f5:"बॅज आणि ग्रंथ शेअरिंग",wa_f6:"कौटुंबिक यात्रा नियोजन",wa_f7:"टीमला साइट विनंती",wa_f8:"पुजारी आणि गाइडशी थेट संपर्क",waf1_h:"WhatsApp वर पंचांग",waf1_p:"दैनंदिन पंचांग डायजेस्ट — तिथी, नक्षत्र, शुभ सूचक.",waf1_pr:"मोफत · दैनंदिन डिलिव्हरी",waf2_h:"रिमोट पूजा बुकिंग",waf2_p:"WhatsApp द्वारे संपूर्ण बुकिंग.",waf2_pr:"₹999 ते ₹7,500 · 20% कमिशन",waf3_h:"प्रसाद तुमच्या दारापर्यंत",waf3_p:"तिरुपती, काशी, अजमेर दर्गाहचा खरा प्रसाद.",waf3_pr:"₹249 ते ₹399 · 15% कमिशन",waf4_h:"पडताळलेला गाइड संपर्क",waf4_p:"प्रत्येक गाइड WhatsApp वर थेट संपर्क.",waf4_pr:"₹299 ते ₹999/महिना",f_gps_h:"GPS → जवळचे पवित्र स्थळ",f_pan_h:"पंचांग आणि नमाज वेळ",f_tr_h:"प्रत्येक स्थळापर्यंत वाहतूक",f_cr_h:"गर्दी माहिती",f_sr_h:"ज्येष्ठ आणि सुलभता मोड",f_rp_h:"रिमोट पूजा सेवा",f_scr_h:"मूळ भाषेत ग्रंथ",f_ai_h:"AI पवित्र गाइड — व्हॉइस",f_lm_h:"दीप समर्पण",f_bg_h:"तीर्थयात्रा बॅज आणि प्रगती",faiths_eyebrow:"सात परंपरा. एक अॅप.",faiths_title:"प्रत्येक धर्माचा समान सन्मान करणारे एकमेव अॅप",how_eyebrow:"Sacred India कसे वापरावे",how_title:"डाउनलोड ते दर्शन सहा चरणांत",s1h:"तुमचा धर्म निवडा",s1p:"तुमची परंपरा निवडा. संपूर्ण अॅप ताबडतोब जुळवून घेतो.",s2h:"वेळ तपासा",s2p:"पंचांग सांगते आज शुभ आहे का.",s3h:"स्थळ शोधा",s3p:"GPS जवळचे पवित्र स्थळ शोधते.",s4h:"कथा वाचा",s4p:"मूळ-भाषा ग्रंथ, विधी गाइड.",s5h:"बुक करा किंवा ऑर्डर करा",s5p:"दर्शन, रिमोट पूजा, प्रसाद — UPI आणि WhatsApp ने.",s6h:"WhatsApp वर मिळवा",s6p:"बुकिंग पुष्टी, पूजा व्हिडिओ — तुमच्या WA वर.",story_eyebrow:"Sacred India कोण वापरते",story_title:"चार प्रकारचे तीर्थयात्री. एक अॅप.",story_sub:"Sacred India बिहारमधील 70-वर्षीय आणि लंडनच्या NRI — दोघांसाठी काम करते.",q1:'"मी वाराणसीत स्वर्गीय वडिलांसाठी दिवा लावला, कुटुंबाच्या WhatsApp ग्रुपवर शेअर केला आणि काही मिनिटांत 23 उत्तरे आली."',q1nm:"सुरेश के., 68, पटना",q1ro:"निवृत्त · पहिल्यांदा चार धाम यात्री",q2:'"आई दिल्लीत आहेत, प्रवास करू शकत नाहीत. मी लंडनहून तिरुपती अभिषेकम बुक केले. दोन तासांत WhatsApp व्हिडिओ आला."',q2nm:"प्रिया आर., 34, लंडन",q2ro:"सॉफ्टवेअर अभियंता · NRI",q3:'"अजमेर दर्गाह विभागात खरे सूफी ग़ज़ल आहेत. अशा गोष्टी सापडल्या ज्या कोणत्याही अॅपमध्ये पाहिल्या नव्हत्या."',q3nm:"फरहान एच., 29, हैदराबाद",q3ro:"सूफी संगीत विद्यार्थी",q4:'"गर्दी माहितीने सांगितले बोधगयामध्ये गुरुवार सर्वोत्तम आहे. सूर्योदयावेळी ध्यान ऑफरिंग बुक केली. पूर्णपणे शांत."',q4nm:"सारा एम., 41, सिंगापूर",q4ro:"बौद्ध अभ्यासक",mkt_eyebrow:"हे बाजार का · आत्ता का",mkt_title:"जगातील सर्वात मोठ्या आध्यात्मिक बाजारात कोणताही प्रबळ अॅप नाही",m1:"धार्मिक पर्यटन बाजार (भारत, 2024)",m2:"भारतात वार्षिक सक्रिय तीर्थयात्री",m3:"वाराणसी अभ्यागत प्रतिवर्षी. कोणताही प्रबळ अॅप नाही.",m4:"NRI डायस्पोरा — रिमोट पूजाचे प्राथमिक दर्शक",mkt_quote:'"Sri Mandir केवळ हिंदू धर्म व्यापतो. भारत हा एकमेव देश आहे जिथे सर्व सात धर्म जागतिक दर्जाने अस्तित्वात आहेत."',mkt_quote_attr:"Sacred India ज्या अंतर भरतो.",mono_eyebrow:"पुजारी, गाइड आणि ऑपरेटरांसाठी",mono_title:"यादीत व्हा. बुकिंग मिळवा. कमाई करा.",list_title:"तुम्ही पुजारी, खादिम किंवा तीर्थयात्रा गाइड आहात का?",list_p:"Sacred India वर ₹299/महिन्यात पडताळलेली नोंदणी. 1 लाखाहून अधिक यात्री तुम्हाला शोधतील.",prog_eyebrow:"तीर्थयात्रा प्रगती प्रणाली",prog_title:"पाच स्तर. सात धर्म ट्रॅक. एक प्रवास.",prog_sub:"प्रत्येक स्थळ भेट, पूजा बुकिंग, दिवा आणि ग्रंथ ऐकणे तुम्हाला प्रगती देते.",t1:"शोधक",t1r:"पहिली भेट किंवा बुकिंग",t2:"यात्री",t2r:"5 स्थळे · 3 धर्म",t3:"भक्त",t3r:"15 स्थळे · 4 धर्म",t4:"ऋषी",t4r:"30 स्थळे · सर्व धर्म",t5:"दंतकथा",t5r:"सर्व स्थळे · सर्व 7 धर्म",sim_label:"अजमावा — तुमची तीर्थ प्रोफाइल बनवा",sim_faith_label:"तुमचा धर्म",sim_sites_label:"स्थळे · दिवे · धर्म",sim_sites_lbl:"स्थळे",sim_faiths_lbl:"धर्म",sim_lamps_lbl:"दिवे",sim_copy_btn:"कॉपी करा",sim_s1:"स्थळे",sim_s2:"धर्म",sim_s3:"दिवे",fcta_title:"भारत इथे प्रार्थना करतो.\nआता इथे नेव्हिगेट करतो.",fcta_sub:"7 धर्म. 12 टॅब्स. पंचांग. रिमोट पूजा. प्रत्येक पवित्र स्थळापर्यंत पोहोच.",cta_wa_final:"WhatsApp वर Sacred India वापरा",cta_learn:"वैशिष्ट्ये पहा",cta_trust:"जाहिरात नाही · डेटा विकत नाही · यात्री प्रथम",footer_badges:"बॅज सिस्टम",footer_puja:"रिमोट पूजा",footer_app:"अॅप वैशिष्ट्ये"},
+ur:{faith_hindu:"ہندو",faith_islam:"اسلام",faith_christian:"عیسائی",faith_buddhist:"بدھ",faith_jain:"جین",faith_sikh:"سکھ",faith_zoroastrian:"زرتشتی",hero_eyebrow:"ہندوستان کی پہلی کثیر المذاہب عبادت گاہ ایپ",hero_wa_tag:"واٹس ایپ پر ہر خصوصیت. ہر مذہب.",hero_sub:"12 ٹیبز. 85+ مقدس مقامات. 7 مذاہب. نماز کے اوقات. دور سے پوجا — واٹس ایپ پر ویڈیو.",cta_wa:"واٹس ایپ پر دور سے پوجا بک کریں",cta_app:"ایپ دیکھیں",stat1:"مذاہب",stat2:"ایپ ٹیبز",stat3:"مقدس مقامات",stat4:"مارکیٹ سائز",prob_eyebrow:"وہ مسئلہ جو ہم حل کرتے ہیں",prob_title:"90 کروڑ زائرین. ان کے لیے کوئی ایپ نہیں.",p1h:"مقدس مقام پر سگنل نہیں",p1s:"✓ ہر مقام کے لیے آف لائن پیک",p2h:"غلط وقت پر جانا",p2s:"✓ بھیڑ کی معلومات + نماز اوقات",p3h:"جعلی پنڈت اور بڑھی قیمتیں",p3s:"✓ تصدیق شدہ گائیڈ. مقررہ قیمتیں.",p4h:"سفر نہیں کر سکتے — لیکن عبادت چاہتے ہیں",p4s:"✓ دور سے پوجا — واٹس ایپ پر ویڈیو",wa_count_label:"8 واٹس ایپ انٹیگریشن پوائنٹس",wa_eyebrow:"واٹس ایپ ہندوستان کا انٹرنیٹ ہے",wa_title:"Sacred India واٹس ایپ میں رہتا ہے",wa_f1:"روزانہ پنچانگ اور نماز کے اوقات",wa_f2:"بکنگ تصدیق",wa_f3:"دور سے پوجا ویڈیو ڈیلیوری",wa_f4:"پرساد ڈیلیوری آرڈر",wa_f5:"بیج اور صحیفہ شیئرنگ",wa_f6:"خاندانی سفر منصوبہ بندی",wa_f7:"ٹیم کو مقام درخواست",wa_f8:"پنڈت اور گائیڈ سے براہ راست رابطہ",t1:"متلاشی",t1r:"پہلی زیارت",t2:"زائر",t2r:"5 مقامات · 3 مذاہب",t3:"عقیدت مند",t3r:"15 مقامات · 4 مذاہب",t4:"عارف",t4r:"30 مقامات",t5:"افسانوی",t5r:"تمام مقامات",sim_faith_label:"آپ کا مذہب",sim_sites_lbl:"مقامات",sim_faiths_lbl:"مذاہب",sim_lamps_lbl:"چراغ",sim_copy_btn:"کاپی کریں",sim_s1:"مقامات",sim_s2:"مذاہب",sim_s3:"چراغ",cta_wa_final:"واٹس ایپ پر Sacred India آزمائیں",cta_trust:"کوئی اشتہار نہیں · ڈیٹا نہیں بیچتے · زائرین پہلے"},
+ta:{faith_hindu:"இந்து",faith_islam:"இஸ்லாம்",faith_christian:"கிறிஸ்தவம்",faith_buddhist:"புத்தம்",faith_jain:"ஜைனம்",faith_sikh:"சீக்கியம்",faith_zoroastrian:"ஜொராஸ்திரியம்",hero_eyebrow:"இந்தியாவின் முதல் பல-மத யாத்திரை செயலி",hero_wa_tag:"WhatsApp-ல் ஒவ்வொரு அம்சம். ஒவ்வொரு மதம்.",hero_sub:"12 தாவல்கள். 85+ புனித தலங்கள். 7 மதங்கள். பஞ்சாங்கம். தொலை பூஜை — WhatsApp-ல் வீடியோ.",cta_wa:"WhatsApp-ல் தொலை பூஜை பதிவு செய்யுங்கள்",cta_app:"செயலியை ஆராயுங்கள்",stat1:"மதங்கள்",stat2:"செயலி தாவல்கள்",stat3:"புனித தலங்கள்",stat4:"சந்தை அளவு",wa_count_label:"8 WhatsApp ஒருங்கிணைப்பு புள்ளிகள்",wa_title:"Sacred India WhatsApp-ல் வாழ்கிறது",wa_f1:"தினசரி பஞ்சாங்கம் மற்றும் நமாஸ் நேரங்கள்",wa_f2:"பதிவு உறுதிப்படுத்தல்",wa_f3:"தொலை பூஜை வீடியோ டெலிவரி",wa_f4:"பிரசாத் டெலிவரி ஆர்டர்கள்",wa_f5:"பேட்ஜ் மற்றும் வேதம் பகிர்வு",wa_f6:"குடும்ப பயண திட்டமிடல்",wa_f7:"குழுவிற்கு தல கோரிக்கை",wa_f8:"பண்டிதர் மற்றும் வழிகாட்டியுடன் நேரடி தொடர்பு",t1:"தேடுபவர்",t1r:"முதல் வருகை",t2:"யாத்திரிகர்",t2r:"5 தலங்கள் · 3 மதங்கள்",t3:"பக்தர்",t3r:"15 தலங்கள்",t4:"முனிவர்",t4r:"30 தலங்கள்",t5:"புராணம்",t5r:"அனைத்து தலங்கள்",sim_faith_label:"உங்கள் மத பாதை",sim_sites_lbl:"தலங்கள்",sim_faiths_lbl:"மதங்கள்",sim_lamps_lbl:"தீபங்கள்",sim_copy_btn:"நகல் எடுக்கவும்",sim_s1:"தலங்கள்",sim_s2:"மதங்கள்",sim_s3:"தீபங்கள்",cta_wa_final:"WhatsApp-ல் Sacred India முயற்சிக்கவும்",cta_trust:"விளம்பரம் இல்லை · தரவு விற்கவில்லை · யாத்திரிகர்கள் முதலில்"},
+pa:{faith_hindu:"ਹਿੰਦੂ",faith_islam:"ਇਸਲਾਮ",faith_christian:"ਈਸਾਈ",faith_buddhist:"ਬੋਧੀ",faith_jain:"ਜੈਨ",faith_sikh:"ਸਿੱਖ",faith_zoroastrian:"ਪਾਰਸੀ",hero_eyebrow:"ਭਾਰਤ ਦੀ ਪਹਿਲੀ ਬਹੁ-ਧਰਮ ਤੀਰਥ ਯਾਤਰਾ ਐਪ",hero_wa_tag:"WhatsApp ਤੇ ਹਰ ਵਿਸ਼ੇਸ਼ਤਾ. ਹਰ ਧਰਮ.",hero_sub:"12 ਟੈਬਸ. 85+ ਪਵਿੱਤਰ ਸਥਾਨ. 7 ਧਰਮ. ਪੰਚਾਂਗ. ਰਿਮੋਟ ਪੂਜਾ — WhatsApp ਤੇ ਵੀਡੀਓ.",cta_wa:"WhatsApp ਤੇ ਰਿਮੋਟ ਪੂਜਾ ਬੁੱਕ ਕਰੋ",cta_app:"ਐਪ ਵੇਖੋ",stat1:"ਧਰਮ",stat2:"ਐਪ ਟੈਬਸ",stat3:"ਪਵਿੱਤਰ ਸਥਾਨ",stat4:"ਮਾਰਕੀਟ ਆਕਾਰ",wa_count_label:"8 WhatsApp ਏਕੀਕਰਨ ਪੁਆਇੰਟ",wa_title:"Sacred India WhatsApp ਵਿੱਚ ਰਹਿੰਦਾ ਹੈ",wa_f1:"ਰੋਜ਼ਾਨਾ ਪੰਚਾਂਗ ਅਤੇ ਨਮਾਜ਼ ਸਮੇਂ",wa_f2:"ਬੁਕਿੰਗ ਪੁਸ਼ਟੀ",wa_f3:"ਰਿਮੋਟ ਪੂਜਾ ਵੀਡੀਓ ਡਿਲੀਵਰੀ",wa_f4:"ਪ੍ਰਸਾਦ ਡਿਲੀਵਰੀ ਆਰਡਰ",wa_f5:"ਬੈਜ ਅਤੇ ਗ੍ਰੰਥ ਸ਼ੇਅਰਿੰਗ",wa_f6:"ਪਰਿਵਾਰਕ ਯਾਤਰਾ ਯੋਜਨਾ",wa_f7:"ਟੀਮ ਨੂੰ ਸਥਾਨ ਬੇਨਤੀ",wa_f8:"ਪੁਜਾਰੀ ਅਤੇ ਗਾਈਡ ਨਾਲ ਸਿੱਧਾ ਸੰਪਰਕ",t1:"ਖੋਜੀ",t1r:"ਪਹਿਲੀ ਭੇਟ",t2:"ਯਾਤਰੀ",t2r:"5 ਸਥਾਨ · 3 ਧਰਮ",t3:"ਭਗਤ",t3r:"15 ਸਥਾਨ",t4:"ਸੰਤ",t4r:"30 ਸਥਾਨ",t5:"ਮਹਾਨ",t5r:"ਸਾਰੇ ਸਥਾਨ",sim_faith_label:"ਤੁਹਾਡਾ ਧਰਮ",sim_sites_lbl:"ਸਥਾਨ",sim_faiths_lbl:"ਧਰਮ",sim_lamps_lbl:"ਦੀਵੇ",sim_copy_btn:"ਕਾਪੀ ਕਰੋ",sim_s1:"ਸਥਾਨ",sim_s2:"ਧਰਮ",sim_s3:"ਦੀਵੇ",cta_wa_final:"WhatsApp ਤੇ Sacred India ਅਜ਼ਮਾਓ",cta_trust:"ਕੋਈ ਇਸ਼ਤਿਹਾਰ ਨਹੀਂ · ਡੇਟਾ ਨਹੀਂ ਵੇਚਦੇ · ਯਾਤਰੀ ਪਹਿਲਾਂ"},
+bn:{faith_hindu:"হিন্দু",faith_islam:"ইসলাম",faith_christian:"খ্রিস্টান",faith_buddhist:"বৌদ্ধ",faith_jain:"জৈন",faith_sikh:"শিখ",faith_zoroastrian:"জরথুস্ট্রিয়ান",hero_eyebrow:"ভারতের প্রথম বহু-ধর্ম তীর্থযাত্রা অ্যাপ",hero_wa_tag:"WhatsApp-এ প্রতিটি বৈশিষ্ট্য. প্রতিটি ধর্ম.",hero_sub:"12 ট্যাবস. 85+ পবিত্র স্থান. 7 ধর্ম. পঞ্চাঙ্গ. দূরবর্তী পূজা — WhatsApp-এ ভিডিও.",cta_wa:"WhatsApp-এ দূরবর্তী পূজা বুক করুন",cta_app:"অ্যাপটি দেখুন",stat1:"ধর্ম",stat2:"অ্যাপ ট্যাবস",stat3:"পবিত্র স্থান",stat4:"বাজারের আকার",wa_count_label:"8 WhatsApp ইন্টিগ্রেশন পয়েন্ট",wa_title:"Sacred India WhatsApp-এ বাস করে",wa_f1:"দৈনিক পঞ্চাঙ্গ ও নামাজের সময়",wa_f2:"বুকিং নিশ্চিতকরণ",wa_f3:"দূরবর্তী পূজা ভিডিও ডেলিভারি",wa_f4:"প্রসাদ ডেলিভারি অর্ডার",wa_f5:"ব্যাজ ও শাস্ত্র ভাগাভাগি",wa_f6:"পারিবারিক ভ্রমণ পরিকল্পনা",wa_f7:"দলকে স্থান অনুরোধ",wa_f8:"পণ্ডিত ও গাইডের সাথে সরাসরি যোগাযোগ",t1:"অন্বেষক",t1r:"প্রথম পরিদর্শন",t2:"তীর্থযাত্রী",t2r:"৫ স্থান · ৩ ধর্ম",t3:"ভক্ত",t3r:"১৫ স্থান",t4:"ঋষি",t4r:"৩০ স্থান",t5:"কিংবদন্তি",t5r:"সব স্থান",sim_faith_label:"আপনার ধর্মীয় পথ",sim_sites_lbl:"স্থান",sim_faiths_lbl:"ধর্ম",sim_lamps_lbl:"প্রদীপ",sim_copy_btn:"কপি করুন",sim_s1:"স্থান",sim_s2:"ধর্ম",sim_s3:"প্রদীপ",cta_wa_final:"WhatsApp-এ Sacred India চেষ্টা করুন",cta_trust:"কোনো বিজ্ঞাপন নেই · ডেটা বিক্রি নয় · তীর্থযাত্রী প্রথম"},
+gu:{faith_hindu:"હિન્દુ",faith_islam:"ઇસ્લામ",faith_christian:"ખ્રિસ્તી",faith_buddhist:"બૌદ્ધ",faith_jain:"જૈન",faith_sikh:"શીખ",faith_zoroastrian:"પારસી",hero_eyebrow:"ભારતની પ્રથમ બહુ-ધર્મ તીર્થ યાત્રા એપ",hero_wa_tag:"WhatsApp પર દરેક સુવિધા. દરેક ધર્મ.",hero_sub:"12 ટૅબ્સ. 85+ પવિત્ર સ્થળો. 7 ધર્મ. પંચાંગ. રિમોટ પૂજા — WhatsApp પર વીડિઓ.",cta_wa:"WhatsApp પર રિમોટ પૂજા બુક કરો",cta_app:"એપ જુઓ",stat1:"ધર્મ",stat2:"એપ ટૅબ્સ",stat3:"પવિત્ર સ્થળો",stat4:"બજાર આકાર",wa_count_label:"8 WhatsApp ઇન્ટિગ્રેશન પૉઇન્ટ",wa_title:"Sacred India WhatsApp માં જીવે છે",wa_f1:"દૈનિક પંચાંગ અને નમાઝ સમય",wa_f2:"બુકિંગ પુષ્ટી",wa_f3:"રિમોટ પૂજા વીડિઓ ડિલિવરી",wa_f4:"પ્રસાદ ડિલિવરી ઑર્ડર",wa_f5:"બૅજ અને ગ્રંથ શેરિંગ",wa_f6:"કૌટુંબિક યાત્રા આયોજન",wa_f7:"ટીમને સ્થળ વિનંતી",wa_f8:"પૂજારી અને ગાઈડ સાથે સીધો સંપર્ક",t1:"શોધક",t1r:"પ્રથમ મુલાકાત",t2:"યાત્રી",t2r:"5 સ્થળ · 3 ધર્મ",t3:"ભક્ત",t3r:"15 સ્થળ",t4:"ઋષિ",t4r:"30 સ્થળ",t5:"દંતકથા",t5r:"બધા સ્થળ",sim_faith_label:"તમારો ધર્મ",sim_sites_lbl:"સ્થળો",sim_faiths_lbl:"ધર્મ",sim_lamps_lbl:"દીવા",sim_copy_btn:"કૉપી",sim_s1:"સ્થળો",sim_s2:"ધર્મ",sim_s3:"દીવા",cta_wa_final:"WhatsApp પર Sacred India અજ઼માઓ",cta_trust:"કોઈ જાહેરાત નહીં · ડેટા નહીં વેચીએ · યાત્રી પ્રથમ"},
+};
+
+let lang='en';
+function setLang(l){
+  lang=l;
+  const t=Object.assign({},T.en,T[l]||{});
+  document.querySelectorAll('[data-t]').forEach(el=>{
+    const k=el.getAttribute('data-t');
+    if(t[k]!==undefined) el.textContent=t[k];
+  });
+  document.querySelectorAll('.lp').forEach(b=>b.classList.toggle('on',b.getAttribute('data-lang')===l));
+  document.documentElement.dir=(l==='ur')?'rtl':'ltr';
+  simUpdate();
+}
+
+/* ── PHONE MOCKUP ── */
+function switchScreen(id){
+  document.querySelectorAll('.pscreen').forEach(s=>s.classList.remove('a'));
+  document.querySelectorAll('.ptab').forEach(b=>b.classList.remove('a'));
+  const s=document.getElementById('s-'+id);
+  const b=document.querySelector('[data-screen="s-'+id+'"]');
+  if(s) s.classList.add('a');
+  if(b) b.classList.add('a');
+}
+
+/* ── BADGE SIMULATOR ── */
+const SD={
+  hindu: {icon:'🛕',track:'Char Dham Yatri',trackHi:'चार धाम यात्री',light:'rgba(200,90,26,.18)',color:'rgba(200,90,26,.6)',text:'#F5C4A0',badges:['🌱','🏔️','🔱','🛕','👑'],bnames:['Seeker','Dham 1','Jyotirlinga','Kashi','Saptapuri']},
+  islam: {icon:'🕌',track:'Chishti Silsila',trackHi:'चिश्ती सिलसिला',light:'rgba(27,94,138,.18)',color:'rgba(27,94,138,.6)',text:'#A8D4EF',badges:['🌱','🌹','🎵','🕌','👑'],bnames:['Seeker','Ajmer','Qawwal','Faqir','Grand Sufi']},
+  christian:{icon:'✝️',track:"Apostle's Path",trackHi:'प्रेरित पथ',light:'rgba(123,63,160,.18)',color:'rgba(123,63,160,.6)',text:'#D9AEED',badges:['🌱','⛪','✝️','🕯️','👑'],bnames:['Seeker','Velankanni','Thomas','Goa','Torch']},
+  buddhist:{icon:'☸️',track:'Noble Eightfold',trackHi:'अष्टांग पथ',light:'rgba(36,113,163,.18)',color:'rgba(36,113,163,.6)',text:'#7EC8E3',badges:['🌱','☸️','🌳','🧘','👑'],bnames:['Seeker','Bodh Gaya','Bodhi','Meditation','Tathagata']},
+  jain:   {icon:'⛩️',track:'Jina Path',trackHi:'जिन पथ',light:'rgba(14,102,85,.18)',color:'rgba(14,102,85,.6)',text:'#7ECBB8',badges:['🌱','⛩️','🏔️','🔢','👑'],bnames:['Seeker','Palitana','3800 Steps','1444 Pillars','Tirthankar']},
+  sikh:   {icon:'🪯',track:'Sikh Circuit',trackHi:'सिख सर्किट',light:'rgba(154,107,16,.18)',color:'rgba(154,107,16,.6)',text:'#E8C56E',badges:['🌱','🪯','🍲','⚔️','👑'],bnames:['Seeker','Golden Temple','Langar','Anandpur','Khalsa']},
+  zoroastrian:{icon:'🔥',track:'Atash Bearer',trackHi:'अतश बेरर',light:'rgba(200,90,26,.12)',color:'rgba(200,90,26,.4)',text:'#F5C4A0',badges:['🌱','🔥','🏛️','📿','👑'],bnames:['Seeker','Udvada','Navsari','Avestan','Zarathushtra']},
+};
+const TIERS=[
+  {name:'Seeker',req:{s:0,f:1,l:0},color:'#c8a87a',bg:'rgba(139,92,60,.1)',br:'rgba(139,92,60,.3)'},
+  {name:'Pilgrim',req:{s:5,f:2,l:1},color:'#a0a8e0',bg:'rgba(120,120,180,.1)',br:'rgba(120,120,180,.3)'},
+  {name:'Devotee',req:{s:15,f:4,l:5},color:'#F5C4A0',bg:'rgba(200,90,26,.12)',br:'rgba(200,90,26,.3)'},
+  {name:'Sage',req:{s:30,f:6,l:15},color:'#FFD580',bg:'rgba(232,160,32,.12)',br:'rgba(232,160,32,.3)'},
+  {name:'Legend',req:{s:50,f:7,l:30},color:'#FFD700',bg:'rgba(232,195,80,.15)',br:'rgba(232,195,80,.4)'},
+];
+let simFaith='hindu';
+
+// Build faith buttons
+(function(){
+  const row=document.getElementById('sfb');
+  Object.entries(SD).forEach(([k,fd])=>{
+    const b=document.createElement('button');
+    b.className='sim-faith-btn';b.setAttribute('data-faith',k);
+    b.textContent=fd.icon+' '+fd.track.split(' ')[0];
+    b.style.cssText=`background:${fd.light};border-color:${fd.color};color:${fd.text};opacity:.5;`;
+    b.onclick=()=>simSetFaith(k);
+    row.appendChild(b);
+  });
+})();
+
+function simUpdate(){
+  const t=Object.assign({},T.en,T[lang]||{});
+  const s=+document.getElementById('sv').textContent;
+  const f=+document.getElementById('fv').textContent;
+  const l=+document.getElementById('lv').textContent;
+  const name=document.getElementById('snin').value||'Pilgrim';
+  let ti=0;
+  for(let i=TIERS.length-1;i>=0;i--){const r=TIERS[i].req;if(s>=r.s&&f>=r.f&&l>=r.l){ti=i;break;}}
+  const tier=TIERS[ti];
+  const next=ti<TIERS.length-1?TIERS[ti+1]:null;
+  const pct=next?Math.min(100,Math.round(Math.max(s/(next.req.s||1),f/(next.req.f||1),l/(next.req.l||1))*100)):100;
+  const tn=t['t'+(ti+1)]||tier.name;
+  document.getElementById('sname').textContent=name;
+  document.getElementById('ssd').textContent=s;
+  document.getElementById('sfd').textContent=f;
+  document.getElementById('sld').textContent=l;
+  document.getElementById('spb').style.cssText=`width:${pct}%;background:${tier.color};`;
+  document.getElementById('stb').textContent='Sacred India · '+tn;
+  document.getElementById('snxt').textContent=next?((s<next.req.s?(next.req.s-s)+' '+(t.sim_sites_lbl||'sites'):f<next.req.f?(next.req.f-f)+' '+(t.sim_faiths_lbl||'faiths'):'Ready for '+(t['t'+(ti+2)]||TIERS[ti+1].name)+' →')):'🏆 Legend!';
+  const fd=SD[simFaith];
+  const card=document.getElementById('sim-card');
+  card.style.borderColor=fd.color;
+  const fb=document.getElementById('sfbadge');
+  fb.style.cssText=`background:${fd.light};border-color:${fd.color};color:${fd.text};`;
+  document.getElementById('sficon').textContent=fd.icon;
+  document.getElementById('sftrack').textContent=(lang==='hi'&&fd.trackHi)?fd.trackHi:fd.track;
+  document.getElementById('sbg').textContent=fd.icon;
+  const ec=Math.min(fd.badges.length,ti+1);
+  document.getElementById('sbrow').innerHTML=fd.badges.map((b,i)=>`<div style="background:${i<ec?fd.light:'rgba(255,255,255,.04)'};border:1px solid ${i<ec?fd.color:'rgba(255,255,255,.08)'};border-radius:9px;padding:5px 9px;font-size:14px;opacity:${i<ec?1:.2};${i<ec?'animation:badgePop .45s ease both;animation-delay:'+(i*.08)+'s':''}" title="${fd.bnames[i]}">${b}</div>`).join('');
+}
+
+function simSetFaith(faith){
+  simFaith=faith;
+  document.querySelectorAll('.sim-faith-btn').forEach(b=>{
+    const active=b.getAttribute('data-faith')===faith;
+    const fd=SD[b.getAttribute('data-faith')];
+    b.style.background=active?fd.light:fd.light.replace('.18','.06');
+    b.style.borderColor=active?fd.color:fd.color.replace('.6','.2');
+    b.style.opacity=active?'1':'0.45';
+  });
+  simUpdate();
+}
+
+function simShare(p){
+  const name=document.getElementById('snin').value||'A Sacred India pilgrim';
+  const tier=document.getElementById('stb').textContent.replace('Sacred India · ','');
+  const track=document.getElementById('sftrack').textContent;
+  const sites=document.getElementById('ssd').textContent;
+  const lamps=document.getElementById('sld').textContent;
+  const fd=SD[simFaith];
+  const text=fd.icon+' '+name+' has reached '+tier+' on Sacred India!\n\nFaith track: '+track+'\nSacred sites visited: '+sites+'\nLamps lit: '+lamps+'\n\nEvery faith. Every sacred site. Every story.\nhttps://sacredindia.app\n#SacredIndia #'+tier;
+  const enc=encodeURIComponent;
+  const c=document.getElementById('sc');
+  if(p==='whatsapp') window.open('https://wa.me/?text='+enc(text));
+  else if(p==='twitter') window.open('https://twitter.com/intent/tweet?text='+enc(text)+'&url='+enc('https://sacredindia.app'));
+  else{navigator.clipboard&&navigator.clipboard.writeText(text);c.textContent='✓ Copied';c.style.opacity='1';setTimeout(()=>c.style.opacity='0',2500);}
+}
+
+function simResize(){const g=document.getElementById('sim-grid');if(g)g.style.gridTemplateColumns=window.innerWidth<700?'1fr':'1fr 1fr';}
+function waMainResize(){const g=document.querySelector('.wa-main');if(g)g.style.gridTemplateColumns=window.innerWidth<768?'1fr':'1fr 1fr';}
+window.addEventListener('resize',()=>{simResize();waMainResize();});
+simResize();waMainResize();
+simSetFaith('hindu');
+simUpdate();
+setLang('en');
+
+function submitWaitlist(){
+  const name  = document.getElementById('wl-name').value.trim();
+  const phone = document.getElementById('wl-phone').value.trim();
+  const interest = document.getElementById('wl-interest').value;
+  if(!name || !phone){ alert('Please enter your name and WhatsApp number.'); return; }
+  const msg = encodeURIComponent(
+    '🌟 WAITLIST SIGNUP\n\n'+
+    'Name: '+name+'\n'+
+    'WhatsApp: '+phone+'\n'+
+    'Interest: '+interest+'\n\n'+
+    'Added to Sacred India early access list.'
+  );
+  window.open('https://wa.me/919999000111?text='+msg, '_blank');
+  document.getElementById('wl-form').style.display='none';
+  document.getElementById('wl-success').style.display='block';
+  // Save locally
+  try{
+    const list = JSON.parse(localStorage.getItem('si_waitlist')||'[]');
+    list.push({name,phone,interest,ts:Date.now()});
+    localStorage.setItem('si_waitlist', JSON.stringify(list));
+  }catch{}
+}
+</script>
+</body>
+</html>
