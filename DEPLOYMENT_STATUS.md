@@ -19,13 +19,13 @@
 ## 📦 DEPLOYED FEATURES
 
 ### Web (Next.js)
-- ❌ Home tab (in progress)
-- ❌ Explore tab (in progress)
-- ❌ Services tab (planned)
-- ❌ AI Guide (planned)
-- ❌ Other 8 tabs (planned)
-- ❌ Booking system (planned)
-- ❌ Payment integration (planned)
+- ✅ Home tab (GPS, panchang, namaz, lamp, WA actions)
+- ✅ Explore tab (85 sites mock, filters, senior mode)
+- ✅ Services tab (remote puja, 4 temples, 11 sevas)
+- ✅ AI Guide (Claude Q&A, voice ready)
+- ⏳ Texts, Badges, Family, Me, Festivals, Community, Stories, Settings (stubs ready)
+- ⏳ Booking system (ready for integration)
+- ⏳ Payment integration (Razorpay ready)
 
 ### Mobile Apps
 - ⏳ iOS app (not started)
