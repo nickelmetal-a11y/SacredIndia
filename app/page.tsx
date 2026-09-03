@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import PanchagWidget from '@/app/components/PanchagWidget';
-import NamazWidget from '@/app/components/NamazWidget';
-import SiteCard from '@/app/components/SiteCard';
+import PanchagWidget from './components/PanchagWidget';
+import NamazWidget from './components/NamazWidget';
+import SiteCard from './components/SiteCard';
 
 export default function Home() {
   const [location, setLocation] = useState<{ lat: number; lng: number } | null>(null);

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import SiteCard from '@/app/components/SiteCard';
+import SiteCard from '../components/SiteCard';
 
 const FAITH_EMOJI: Record<string, string> = {
   'hindu': '🛕',
