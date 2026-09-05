@@ -12,7 +12,7 @@ export interface CrowdIntelligence {
 
 // Day-of-week patterns (simplified)
 // Real implementation would use historical data
-const DAY_PATTERNS: Record<string, 'low' | 'medium' | 'high'> = {
+const DAY_PATTERNS: Record<string, 'low' | 'medium' | 'high' | 'very_high'> = {
   'Monday': 'low',
   'Tuesday': 'low',
   'Wednesday': 'medium',
