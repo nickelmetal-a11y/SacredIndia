@@ -1,91 +1,91 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import PanchagWidget from './components/PanchagWidget';
-import NamazWidget from './components/NamazWidget';
-import SiteCard from './components/SiteCard';
-
 export default function Home() {
-  const [location, setLocation] = useState<{ lat: number; lng: number } | null>(null);
-  const [nearestSite, setNearestSite] = useState<any>(null);
-
-  useEffect(() => {
-    // Get GPS location
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((pos) => {
-        setLocation({ lat: pos.coords.latitude, lng: pos.coords.longitude });
-        // Mock nearest site (in real app, query Supabase)
-        setNearestSite({
-          name: 'Kashi Vishwanath',
-          faith: 'hindu',
-          emoji: '🛕',
-          distance: 2.3,
-          crowdLevel: 'medium'
-        });
-      }, (error) => {
-        console.log('GPS error:', error);
-        // Fallback to default location
-        setNearestSite({
-          name: 'Kashi Vishwanath',
-          faith: 'hindu',
-          emoji: '🛕',
-          distance: 2.3,
-          crowdLevel: 'medium'
-        });
-      });
-    }
-  }, []);
-
   return (
-    <div className="px-4 py-6 max-w-3xl">
-      {/* Nearest Site Card */}
-      {nearestSite && (
-        <div className="mb-6">
-          <h2 className="text-lg font-bold text-gray-800 mb-2">📍 Nearest Sacred Site</h2>
-          <SiteCard {...nearestSite} />
-        </div>
-      )}
-
-      {/* Panchang Widget */}
-      <PanchagWidget />
-
-      {/* Namaz Widget */}
-      <NamazWidget />
-
-      {/* Lamp Dedication */}
-      <div className="bg-gradient-to-r from-purple-50 to-pink-50 border-l-4 border-purple-500 p-4 rounded-lg mb-4">
-        <h3 className="font-bold text-lg text-gray-800 mb-2">🪔 Light a Lamp</h3>
-        <p className="text-sm text-gray-600 mb-3">Dedicate a lamp to someone special</p>
-        <button className="w-full bg-purple-600 text-white py-2 rounded-lg font-semibold hover:bg-purple-700 transition-colors">
-          Light a Diya
-        </button>
-      </div>
-
-      {/* WhatsApp Quick Actions */}
-      <div className="bg-white border border-gray-200 rounded-lg p-4 mb-4">
-        <h3 className="font-bold text-gray-800 mb-3">💬 Quick WhatsApp Actions</h3>
-        <div className="grid grid-cols-2 gap-2">
-          <button className="bg-green-600 text-white py-2 rounded-lg text-sm font-semibold hover:bg-green-700">
-            📅 Share Panchang
-          </button>
-          <button className="bg-green-600 text-white py-2 rounded-lg text-sm font-semibold hover:bg-green-700">
-            📋 Share Trip Plan
-          </button>
-          <button className="bg-green-600 text-white py-2 rounded-lg text-sm font-semibold hover:bg-green-700">
-            🙏 Book a Puja
-          </button>
-          <button className="bg-green-600 text-white py-2 rounded-lg text-sm font-semibold hover:bg-green-700">
-            ➕ Request Site
-          </button>
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <div className="border-b border-gray-200 px-4 py-8">
+        <div className="max-w-2xl mx-auto">
+          <h1 className="text-4xl font-light text-gray-900 mb-1" style={{fontFamily: 'Georgia, serif'}}>
+            Sacred India
+          </h1>
+          <p className="text-sm text-gray-500">Discover pilgrimage sites across 7 faiths</p>
         </div>
       </div>
 
-      {/* Location Display */}
-      {location && (
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-xs text-gray-600">
-          📍 Location: {location.lat.toFixed(4)}, {location.lng.toFixed(4)}
+      {/* Main Content */}
+      <div className="max-w-2xl mx-auto px-4 py-8 space-y-8">
+
+        {/* Nearest Sacred Site */}
+        <div className="bg-gray-50 rounded-lg p-6">
+          <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-4">Nearest Sacred Site</h2>
+          <div className="mb-4">
+            <h3 className="text-2xl font-light text-gray-900 mb-1">Kashi Vishwanath</h3>
+            <p className="text-sm text-gray-600">Varanasi, Uttar Pradesh</p>
+          </div>
+          <div className="flex justify-between items-start mb-4 text-sm">
+            <span className="text-gray-600">2.3 km away</span>
+            <span className="text-gray-600">Medium crowd</span>
+          </div>
+          <p className="text-sm text-gray-700 leading-relaxed">
+            Ancient temple of Lord Shiva on the banks of the Ganges. Sacred for 800+ years of continuous worship.
+          </p>
         </div>
-      )}
+
+        {/* Panchang */}
+        <div className="border-l-4 border-orange-600 pl-6">
+          <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Panchang</h2>
+          <div className="space-y-3">
+            <div>
+              <p className="text-xs text-gray-500">Tithi</p>
+              <p className="text-base text-gray-900">Pratipada</p>
+            </div>
+            <div>
+              <p className="text-xs text-gray-500">Auspicious Time</p>
+              <p className="text-base text-gray-900">6:00 AM - 12:00 PM</p>
+            </div>
+            <p className="text-xs text-green-600 font-medium">Auspicious today</p>
+          </div>
+        </div>
+
+        {/* Prayer Times */}
+        <div className="border-l-4 border-green-600 pl-6">
+          <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Prayer Times (Delhi)</h2>
+          <div className="grid grid-cols-5 gap-4 text-center text-sm">
+            {[
+              { name: 'Fajr', time: '4:30' },
+              { name: 'Zuhr', time: '12:30' },
+              { name: 'Asr', time: '4:30' },
+              { name: 'Maghrib', time: '7:45' },
+              { name: 'Isha', time: '9:15' }
+            ].map((p, i) => (
+              <div key={i}>
+                <p className="text-xs text-gray-500 mb-1">{p.name}</p>
+                <p className="font-medium text-gray-900">{p.time}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Stats */}
+        <div className="border-t border-gray-200 pt-8">
+          <div className="grid grid-cols-3 gap-8 text-center">
+            <div>
+              <p className="text-2xl font-light text-gray-900">85+</p>
+              <p className="text-xs text-gray-500 mt-1">Sacred Sites</p>
+            </div>
+            <div>
+              <p className="text-2xl font-light text-gray-900">7</p>
+              <p className="text-xs text-gray-500 mt-1">Faiths</p>
+            </div>
+            <div>
+              <p className="text-2xl font-light text-gray-900">4.9</p>
+              <p className="text-xs text-gray-500 mt-1">Rating</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   );
 }
