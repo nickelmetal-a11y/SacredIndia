@@ -1,31 +1,3 @@
-import { Playfair_Display, Inter } from 'next/font/google';
-
-/**
- * Sacred India — Home tab
- *
- * This is your existing page.tsx (Nearest Sacred Site / Panchang / Prayer
- * Times / Stats) reskinned into the cream + gold + serif design system from
- * the reference screenshot. Content and structure are unchanged — same
- * Kashi Vishwanath data, same Pratipada tithi, same five prayer times, same
- * stats footer. Only the visual language changed.
- *
- * Dropped 'use client' — nothing here reads state or handles events, so this
- * can render as a server component. Add 'use client' back if you wire up
- * interactivity (tapping the site card, live-updating times, etc.).
- */
-
-const serif = Playfair_Display({
-  subsets: ['latin'],
-  weight: ['600', '700'],
-  variable: '--font-serif',
-});
-
-const sans = Inter({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-sans',
-});
-
 const NEAREST_SITE = {
   name: 'Kashi Vishwanath',
   city: 'Varanasi, Uttar Pradesh',
@@ -57,134 +29,85 @@ const STATS = [
 
 export default function Home() {
   return (
-    <div
-      className={`${serif.variable} ${sans.variable} min-h-screen bg-[var(--si-cream)] text-[var(--si-ink)] [font-family:var(--font-sans)]`}
-    >
-      {/* header */}
-      <header className="px-4 py-8">
-        <div className="mx-auto flex max-w-2xl items-center gap-3">
-          <Lotus />
-          <div>
-            <h1 className="[font-family:var(--font-serif)] text-4xl font-bold leading-none text-[var(--si-ink)]">
-              Sacred India
-            </h1>
-            <p className="mt-1.5 text-sm text-[var(--si-muted)]">Discover pilgrimage sites across 7 faiths</p>
-          </div>
+    <div className="mx-auto max-w-2xl space-y-8 px-4 py-8 text-[#2B2118]">
+      {/* nearest sacred site */}
+      <section className="overflow-hidden rounded-2xl border border-[#E7DFD0] bg-white">
+        <div
+          className="relative flex h-28 items-end"
+          style={{ backgroundImage: 'linear-gradient(150deg,#F3D9A0,#C9862F 60%,#8B5A2B)' }}
+        >
+          <span className="absolute -bottom-3 -right-2 text-[92px] leading-none opacity-25">🛕</span>
+          <span className="relative z-10 m-4 rounded-full bg-black/40 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
+            Nearest Sacred Site
+          </span>
         </div>
-      </header>
+        <div className="p-6">
+          <h2 className="[font-family:var(--font-serif)] text-2xl font-bold text-[#2B2118]">
+            {NEAREST_SITE.name}
+          </h2>
+          <p className="mt-0.5 text-sm text-[#948573]">{NEAREST_SITE.city}</p>
 
-      <main className="mx-auto max-w-2xl space-y-8 px-4 pb-16">
-        {/* nearest sacred site */}
-        <section className="overflow-hidden rounded-2xl border border-[var(--si-line)] bg-white">
-          <div
-            className="relative flex h-28 items-end"
-            style={{ backgroundImage: 'linear-gradient(150deg,#F3D9A0,#C9862F 60%,#8B5A2B)' }}
-          >
-            <span className="absolute -bottom-3 -right-2 text-[92px] leading-none opacity-25">🛕</span>
-            <span className="relative z-10 m-4 rounded-full bg-black/40 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
-              Nearest Sacred Site
+          <div className="mt-3 flex items-center gap-4 text-sm">
+            <span className="flex items-center gap-1 font-medium text-[#5B4E3F]">
+              <PinIcon color="#948573" className="h-3.5 w-3.5" />
+              {NEAREST_SITE.distance}
+            </span>
+            <span className="flex items-center gap-1 font-medium text-[#C9821B]">
+              <PeopleIcon className="h-3.5 w-3.5" />
+              {NEAREST_SITE.crowd}
             </span>
           </div>
-          <div className="p-6">
-            <h2 className="[font-family:var(--font-serif)] text-2xl font-bold text-[var(--si-ink)]">
-              {NEAREST_SITE.name}
-            </h2>
-            <p className="mt-0.5 text-sm text-[var(--si-muted)]">{NEAREST_SITE.city}</p>
 
-            <div className="mt-3 flex items-center gap-4 text-sm">
-              <span className="flex items-center gap-1 font-medium text-[var(--si-ink-soft)]">
-                <PinIcon color="var(--si-muted)" className="h-3.5 w-3.5" />
-                {NEAREST_SITE.distance}
-              </span>
-              <span className="flex items-center gap-1 font-medium text-[var(--si-amber)]">
-                <PeopleIcon className="h-3.5 w-3.5" />
-                {NEAREST_SITE.crowd}
-              </span>
+          <p className="mt-4 text-sm leading-relaxed text-[#5B4E3F]">{NEAREST_SITE.description}</p>
+        </div>
+      </section>
+
+      {/* panchang */}
+      <section className="rounded-2xl bg-[#F7DFC4] p-6">
+        <h2 className="mb-4 flex items-center gap-2 [font-family:var(--font-serif)] text-xl font-bold">
+          <span className="text-lg">☀️</span> Panchang
+        </h2>
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <p className="text-xs text-[#948573]">Tithi</p>
+            <p className="mt-0.5 text-base font-medium">{PANCHANG.tithi}</p>
+          </div>
+          <div>
+            <p className="text-xs text-[#948573]">Auspicious time</p>
+            <p className="mt-0.5 text-base font-medium">{PANCHANG.auspiciousTime}</p>
+          </div>
+        </div>
+        <p className="mt-4 text-xs font-semibold text-[#4C9A5B]">{PANCHANG.note}</p>
+      </section>
+
+      {/* prayer times */}
+      <section className="rounded-2xl bg-[#D9EBDD] p-6">
+        <h2 className="mb-4 flex items-center gap-2 [font-family:var(--font-serif)] text-xl font-bold">
+          <span className="text-lg">🌙</span> Prayer Times{' '}
+          <span className="text-sm font-normal text-[#5B4E3F]">(Delhi)</span>
+        </h2>
+        <div className="grid grid-cols-5 gap-2 text-center">
+          {PRAYERS.map((p) => (
+            <div key={p.name}>
+              <p className="text-xs text-[#5B4E3F]">{p.name}</p>
+              <p className="mt-1 text-sm font-semibold">{p.time}</p>
             </div>
+          ))}
+        </div>
+      </section>
 
-            <p className="mt-4 text-sm leading-relaxed text-[var(--si-ink-soft)]">{NEAREST_SITE.description}</p>
-          </div>
-        </section>
-
-        {/* panchang */}
-        <section className="rounded-2xl p-6" style={{ background: 'var(--si-tile-peach)' }}>
-          <h2 className="mb-4 flex items-center gap-2 [font-family:var(--font-serif)] text-xl font-bold text-[var(--si-ink)]">
-            <span className="text-lg">☀️</span> Panchang
-          </h2>
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <p className="text-xs text-[var(--si-muted)]">Tithi</p>
-              <p className="mt-0.5 text-base font-medium text-[var(--si-ink)]">{PANCHANG.tithi}</p>
+      {/* stats */}
+      <section className="border-t border-[#E7DFD0] pt-8">
+        <div className="grid grid-cols-3 gap-8 text-center">
+          {STATS.map((s) => (
+            <div key={s.label}>
+              <p className="[font-family:var(--font-serif)] text-3xl font-bold text-[#8B6A2E]">{s.value}</p>
+              <p className="mt-1 text-xs text-[#948573]">{s.label}</p>
             </div>
-            <div>
-              <p className="text-xs text-[var(--si-muted)]">Auspicious time</p>
-              <p className="mt-0.5 text-base font-medium text-[var(--si-ink)]">{PANCHANG.auspiciousTime}</p>
-            </div>
-          </div>
-          <p className="mt-4 text-xs font-semibold text-[var(--si-green)]">{PANCHANG.note}</p>
-        </section>
-
-        {/* prayer times */}
-        <section className="rounded-2xl p-6" style={{ background: 'var(--si-tile-mint)' }}>
-          <h2 className="mb-4 flex items-center gap-2 [font-family:var(--font-serif)] text-xl font-bold text-[var(--si-ink)]">
-            <span className="text-lg">🌙</span> Prayer Times <span className="text-sm font-normal text-[var(--si-ink-soft)]">(Delhi)</span>
-          </h2>
-          <div className="grid grid-cols-5 gap-2 text-center">
-            {PRAYERS.map((p) => (
-              <div key={p.name}>
-                <p className="text-xs text-[var(--si-ink-soft)]">{p.name}</p>
-                <p className="mt-1 text-sm font-semibold text-[var(--si-ink)]">{p.time}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* stats */}
-        <section className="border-t pt-8" style={{ borderColor: 'var(--si-line)' }}>
-          <div className="grid grid-cols-3 gap-8 text-center">
-            {STATS.map((s) => (
-              <div key={s.label}>
-                <p className="[font-family:var(--font-serif)] text-3xl font-bold text-[var(--si-gold-deep)]">{s.value}</p>
-                <p className="mt-1 text-xs text-[var(--si-muted)]">{s.label}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-      </main>
-
-      <style jsx global>{`
-        :root {
-          --si-cream: #f8f3ea;
-          --si-cream-2: #fbf8f2;
-          --si-ink: #2b2118;
-          --si-ink-soft: #5b4e3f;
-          --si-muted: #948573;
-          --si-line: #e7dfd0;
-          --si-gold: #b8860b;
-          --si-gold-deep: #8b6a2e;
-          --si-amber: #c9821b;
-          --si-red: #d24b4b;
-          --si-green: #4c9a5b;
-          --si-tile-peach: #f7dfc4;
-          --si-tile-mint: #d9ebdd;
-          --si-tile-pink: #f6d9d6;
-          --si-tile-lav: #e3dcf3;
-        }
-      `}</style>
+          ))}
+        </div>
+      </section>
     </div>
-  );
-}
-
-function Lotus() {
-  const petals = [-40, -19, 0, 19, 40].map((deg, i) => {
-    const rx = i === 2 ? 3.7 : i === 1 || i === 3 ? 3.5 : 3.2;
-    const ry = i === 2 ? 11 : i === 1 || i === 3 ? 10 : 9;
-    return <ellipse key={deg} cx={0} cy={-ry} rx={rx} ry={ry} transform={`rotate(${deg})`} />;
-  });
-  return (
-    <svg width="36" height="30" viewBox="0 0 32 24" fill="none" stroke="var(--si-gold)" strokeWidth={1.3}>
-      <g transform="translate(16,20)">{petals}</g>
-    </svg>
   );
 }
 
